@@ -1,0 +1,541 @@
+@import "tailwindcss";
+/* @import "tw-animate-css"; */
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-dm-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Official Yoglivya Brand Tokens from Resource */
+  --color-ink: #1c211d;
+  --color-muted-text: #77766f;
+  --color-line: #e7e5df;
+  --color-cream: #f5f3ed;
+  --color-paper: #eeece1;
+  --color-green: #26352b;
+  --color-gold: #a08758;
+  --color-sage: #737e65;
+  --color-sand: #c8b58d;
+  --color-rope: #d7c5a7;
+  --color-clay: #c88f70;
+
+  /* Brand scales matching #26352b */
+  --color-brand-50:  #f6f7f5;
+  --color-brand-100: #e8ece7;
+  --color-brand-200: #d1dbcf;
+  --color-brand-300: #adc2ab;
+  --color-brand-400: #7b9f78;
+  --color-brand-500: #4a6e47;
+  --color-brand-600: #385436;
+  --color-brand-700: #26352b; /* Primary Brand Green */
+  --color-brand-800: #1c2720;
+  --color-brand-900: #141c17;
+
+  /* Backward-compatible scale aliases */
+  --color-luxury-50: var(--color-brand-50);
+  --color-luxury-100: var(--color-brand-100);
+  --color-luxury-200: var(--color-brand-200);
+  --color-luxury-300: var(--color-brand-300);
+  --color-luxury-400: var(--color-brand-400);
+  --color-luxury-500: var(--color-brand-500);
+  --color-luxury-600: var(--color-brand-600);
+  --color-luxury-700: var(--color-brand-700);
+  --color-luxury-800: var(--color-brand-800);
+  --color-luxury-900: var(--color-brand-900);
+  --color-luxury-black: #1c211d;
+
+  --color-accent-gold: #a08758;
+  --color-accent-muted: #a0875822;
+}
+
+:root {
+  --radius: 0.125rem;
+  --background: #FFFFFF;
+  --foreground: #1c211d;
+  --card: #FFFFFF;
+  --card-foreground: #1c211d;
+  --popover: #FFFFFF;
+  --popover-foreground: #1c211d;
+  --primary: #26352b;
+  --primary-foreground: #FFFFFF;
+  --secondary: #f5f3ed;
+  --secondary-foreground: #1c211d;
+  --muted: #f5f3ed;
+  --muted-foreground: #77766f;
+  --accent: #a08758;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e7e5df;
+  --input: #e7e5df;
+  --ring: #26352b;
+  --chart-1: #26352b;
+  --chart-2: #737e65;
+  --chart-3: #a08758;
+  --chart-4: #c8b58d;
+  --chart-5: #c88f70;
+  --sidebar: #f5f3ed;
+  --sidebar-foreground: #1c211d;
+  --sidebar-primary: #26352b;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #e7e5df;
+  --sidebar-accent-foreground: #1c211d;
+  --sidebar-border: #e7e5df;
+  --sidebar-ring: #26352b;
+}
+
+.dark {
+  --background: #141c17;
+  --foreground: #f5f3ed;
+  --card: #1c2720;
+  --card-foreground: #f5f3ed;
+  --popover: #1c2720;
+  --popover-foreground: #f5f3ed;
+  --primary: #c8b58d;
+  --primary-foreground: #141c17;
+  --secondary: #26352b;
+  --secondary-foreground: #f5f3ed;
+  --muted: #26352b;
+  --muted-foreground: #a0a69a;
+  --accent: #a08758;
+  --accent-foreground: #141c17;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #2e3d33;
+  --input: #2e3d33;
+  --ring: #c8b58d;
+  --chart-1: #c8b58d;
+  --chart-2: #737e65;
+  --chart-3: #a08758;
+  --chart-4: #c88f70;
+  --chart-5: #d7c5a7;
+  --sidebar: #18221c;
+  --sidebar-foreground: #f5f3ed;
+  --sidebar-primary: #c8b58d;
+  --sidebar-primary-foreground: #141c17;
+  --sidebar-accent: #26352b;
+  --sidebar-accent-foreground: #f5f3ed;
+  --sidebar-border: #2e3d33;
+  --sidebar-ring: #c8b58d;
+}
+
+/* ---------- smooth scroll ---------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- base ---------- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ---------- Custom Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #737373;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+/* ---------- Animation Keyframes ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-soft {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce-gentle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes footer-type-loop {
+  0%,
+  12% {
+    max-width: 0;
+  }
+
+  40%,
+  60% {
+    max-width: 22em;
+  }
+
+  88%,
+  100% {
+    max-width: 0;
+  }
+}
+
+@keyframes footer-caret {
+
+  0%,
+  49% {
+    border-color: #000000;
+  }
+
+  50%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* ---------- Animation Utilities ---------- */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out both;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out both;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.footer-link-underline {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+  padding-bottom: 0.2rem;
+}
+
+.footer-link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: #000000;
+  transition: width 0.28s ease;
+}
+
+.footer-link-underline:hover::after,
+.footer-link-underline:focus-visible::after {
+  width: 100%;
+}
+
+.footer-watermark-typing {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 1px solid #000000;
+  vertical-align: bottom;
+  text-align: left;
+  animation:
+    footer-type-loop 5.8s steps(27, end) infinite,
+    footer-caret 0.85s step-end infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-link-underline::after {
+    transition: none;
+  }
+
+  .footer-watermark-typing {
+    max-width: 22em;
+    border-right: none;
+    animation: none;
+  }
+}
+
+/* Mobile bottom nav safe area */
+@media (max-width: 768px) {
+  main {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Focus ring override for forms */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid #000000;
+  outline-offset: 0px;
+}
+
+.checkout-field-input:focus {
+  outline: none;
+}
+
+/* ---------- Marquee / Ticker ---------- */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
+
+/* ---------- Marquee / Ticker ---------- */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
+/* ---------- Cart badge pop ---------- */
+@keyframes badge-pop {
+  0%   { transform: scale(0.4); opacity: 0; }
+  65%  { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+.badge-pop {
+  animation: badge-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Premium mobile nav tap — zero delay, zero flash */
+.nav-tap,
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (pointer: coarse) {
+  a, button, [role="button"], input, textarea, select, label, summary {
+    touch-action: manipulation;
+  }
+}

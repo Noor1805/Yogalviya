@@ -1,0 +1,358 @@
+================================================================================
+PROJECT CLONING BLUEPRINT: ALMINA COUTURE E-COMMERCE -> YOGLIVYA YOGA
+ANTIGRAVITY SYSTEM INSTRUCTIONS & AUTONOMOUS CODE MIGRATION PROTOCOL
+================================================================================
+
+SOURCE PROJECT (TO CLONE FROM):
+  - Brand / Name:     Almina Couture
+  - Local Directory:  `c:\Code-work\E-commerce`
+  - GitHub Remote:    `https://github.com/Trash-Code01/E-commerce.git`
+  - Tech Architecture: Next.js 16 (App Router), React 19, TypeScript 5, Mongoose 9,
+                      NextAuth v5 (beta 30), Tailwind CSS v4, Razorpay, Stripe,
+                      Cloudinary, Resend, Zustand 5, Radix UI, Framer Motion 12.
+
+TARGET PROJECT (TO CREATE):
+  - Brand / Name:     Yoglivya (Professional Yoga E-Commerce Brand)
+  - Target Directory: Active workspace (e.g. `../yoglivya`)
+
+RESOURCE DIRECTORY (VISUALS & CREDENTIALS):
+  - Location:         User-provided `resource/` (or `resources/`) folder containing:
+                      * Brand color palette & hex codes (tokens, theme specs, brand guide)
+                      * UI/UX designs, wireframes, page layouts, component specs
+                      * Brand assets (official logos, icons, favicons, banners)
+                      * API credentials (.env values for MongoDB, Razorpay, Cloudinary, Resend)
+
+================================================================================
+# 1. CORE MISSION & CLONING DIRECTIVE
+================================================================================
+
+You are an expert full-stack AI software engineer running inside Google Antigravity.
+You have concurrent workspace access to:
+  1. The SOURCE CODEBASE (`c:\Code-work\E-commerce` — Almina Couture)
+  2. The TARGET CODEBASE (`../yoglivya`)
+  3. The RESOURCE FOLDER (`resource/` in target project)
+
+YOUR OBJECTIVE:
+Scaffold and build the new Yoglivya Yoga e-commerce project from scratch. You must CLONE 100% of the proven, battle-tested e-commerce code, business logic, database architecture, admin panel, customer panel, checkout pipeline, and APIs from the ALMINA COUTURE project (`c:\Code-work\E-commerce`).
+
+CRITICAL RULES:
+1. ZERO LOGIC LOSS: Every backend algorithm, database schema, authentication flow, payment pipeline, multi-currency conversion, stock deduction, PDF invoice generator, and admin tool must be cloned from the Almina project without simplification.
+2. DYNAMIC BRANDING FROM RESOURCE FOLDER: Do NOT hardcode colors, typography, or UI layouts. Extract brand colors, official logos, and UI designs directly from the user's `resource/` directory.
+3. SCAFFOLD FROM SCRATCH: Generate the entire target folder structure in the Yoglivya repository from the ground up as outlined in Section 3.
+
+================================================================================
+# 2. SOURCE CODE MIGRATION MAP (ALMINA COUTURE -> YOGLIVYA)
+================================================================================
+
+The agent must read code directly from the Almina Couture project files (`c:\Code-work\E-commerce`) and clone the logic into the target project as mapped below:
+
+1. DATABASE MODELS (`c:\Code-work\E-commerce\lib\models/`):
+   - `Admin.ts`           -> Clone schema, bcrypt hooks, role guards, lastLogin.
+   - `Customer.ts`        -> Clone profile, saved addresses, password reset tokens.
+   - `Product.ts`         -> Clone dual-currency pricing (INR/USD), stock, variants map, images, tags, SEO, soft delete.
+   - `Category.ts`        -> Clone hierarchy (`parentCategory`), slug, image, sorting.
+   - `Attribute.ts`       -> Clone dynamic attributes (Material, Thickness, Size, Color).
+   - `Order.ts`           -> Clone complete transaction record, item snapshots, fulfillment pipeline, timeline, invoice link.
+   - `Coupon.ts`          -> Clone discount validator, percent/flat calculation, usage limits.
+   - `Review.ts`          -> Clone ratings, verified buyer badges, moderation flags.
+   - `Contact.ts`         -> Clone contact message submissions & statuses.
+   - `Enquiry.ts`         -> Clone wholesale / bulk yoga studio enquiries.
+   - `EmailTemplate.ts`   -> Clone customizable email templates.
+   - `Media.ts`           -> Clone Cloudinary asset metadata tracker.
+   - `SearchSettings.ts`  -> Clone search weights, synonyms, and fuzzy matching.
+
+2. CORE BACKEND SERVICES (`c:\Code-work\E-commerce\lib/`):
+   - `lib/db.ts`                                    -> Connection caching for serverless MongoDB.
+   - `lib/checkout.ts`                              -> Currency math, tax, coupon deduction, shipping rules.
+   - `lib/services/order.service.ts`                -> Atomic stock deduction, order numbering, timeline audit.
+   - `lib/services/payment.service.ts`              -> Razorpay server orders, webhook signature verification, Stripe fallback.
+   - `lib/services/email.service.ts`                -> Resend email dispatcher (order confirmed, shipped, alert).
+   - `lib/services/cloudinary.service.ts`           -> Image uploads, deletions, signed tokens.
+   - `lib/services/product.service.ts`              -> Catalog queries, filters, variant resolution.
+   - `lib/utils/invoice.ts`                         -> Automated PDF/HTML invoice generation.
+   - `lib/utils/currency-utils.ts` & `currency.tsx` -> Dual-currency context & switcher (INR / USD).
+   - `lib/events/emitter.ts` & `listeners.ts`       -> Event-driven architecture.
+   - `lib/validations/checkout.ts` & `product.ts`   -> Zod schemas for input validation.
+
+3. AUTHENTICATION ENGINE (`c:\Code-work\E-commerce\lib/`):
+   - `lib/auth.ts`           -> NextAuth v5 configuration with `admin-login` & `customer-login` Credentials + Google OAuth.
+   - `lib/auth-bootstrap.ts` & `lib/auth-env.ts` -> Environment normalization.
+   - `lib/admin-session.ts`, `lib/authz.ts`      -> Server-side route authorization.
+   - `lib/utils/customer-order-access.ts`       -> Customer order data privacy guards.
+
+4. STATE STORES (`c:\Code-work\E-commerce\store/`):
+   - `store/cart.ts`     -> Persistent Zustand cart store with SKU keys, quantity modifiers, and subtotal computation.
+   - `store/wishlist.ts` -> Persistent Zustand wishlist store with toggle item and badge count.
+
+5. REST API ROUTES (`c:\Code-work\E-commerce\app\api/`):
+   - `app/api/admin/**/*`    -> All 18+ admin endpoints (products, orders, coupons, media, analytics, trash, etc.).
+   - `app/api/customer/**/*` -> Customer endpoints (register, reset-password, profile, orders, reviews, cloudinary-signature).
+   - `app/api/checkout/**/*` -> Order placement and payment verification.
+   - `app/api/webhooks/**/*` -> Razorpay & Stripe webhook listeners.
+   - `app/api/products/**/*` -> Public catalog query & filter engine.
+
+6. ADMIN & CUSTOMER UI (`c:\Code-work\E-commerce/`):
+   - `app/(auth)/admin/**/*`         -> All 18 admin page views.
+   - `components/admin/**/*`         -> Admin Sidebar, Header, ProductForm, VariantMatrix, OrderModal, Data Tables.
+   - `app/(frontend)/account/**/*`   -> Customer dashboard, order history, profile, address book.
+   - `components/account/**/*`       -> Customer account components.
+   - `components/checkout/CheckoutPageClient.tsx` -> Frictionless single-page checkout flow.
+
+================================================================================
+# 3. TARGET DIRECTORY STRUCTURE TO BUILD FROM SCRATCH
+================================================================================
+
+The agent must create this exact clean tree in the target workspace:
+
+```
+yoglivya/
+├── app/
+│   ├── (auth)/
+│   │   └── admin/
+│   │       ├── analytics/ (top-categories, top-products)
+│   │       ├── attributes/
+│   │       ├── categories/
+│   │       ├── contacts/
+│   │       ├── coupons/
+│   │       ├── customers/
+│   │       ├── emails/
+│   │       ├── forgot-password/
+│   │       ├── leads/
+│   │       ├── login/
+│   │       ├── media/
+│   │       ├── orders/
+│   │       ├── products/
+│   │       ├── reset-password/
+│   │       ├── search-settings/
+│   │       ├── settings/
+│   │       └── trash/
+│   ├── (frontend)/
+│   │   ├── about/
+│   │   ├── account/
+│   │   ├── checkout/
+│   │   ├── contact/
+│   │   ├── forgot-password/
+│   │   ├── login/
+│   │   ├── products/
+│   │   │   └── [category]/
+│   │   │       └── [slug]/
+│   │   ├── register/
+│   │   ├── reset-password/
+│   │   ├── thank-you/
+│   │   └── page.tsx (Home)
+│   ├── api/
+│   │   ├── admin/
+│   │   │   ├── analytics/
+│   │   │   ├── attributes/
+│   │   │   ├── auth/ (change-password, forgot-password, reset-password)
+│   │   │   ├── bulk-action/
+│   │   │   ├── categories/
+│   │   │   ├── contacts/
+│   │   │   ├── coupons/
+│   │   │   ├── customers/
+│   │   │   ├── emails/
+│   │   │   ├── leads/
+│   │   │   ├── media/
+│   │   │   ├── notifications/
+│   │   │   ├── orders/
+│   │   │   ├── products/
+│   │   │   ├── search-settings/
+│   │   │   ├── stats/
+│   │   │   ├── trash/
+│   │   │   └── upload/
+│   │   ├── auth/
+│   │   │   └── [...nextauth]/
+│   │   ├── checkout/
+│   │   ├── customer/
+│   │   │   ├── auth/
+│   │   │   ├── cloudinary-signature/
+│   │   │   ├── orders/
+│   │   │   ├── profile/
+│   │   │   └── reviews/
+│   │   ├── products/
+│   │   └── webhooks/
+│   │       ├── razorpay/
+│   │       └── stripe/
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+├── components/
+│   ├── account/
+│   ├── admin/
+│   ├── auth/
+│   ├── checkout/
+│   ├── layout/ (Header, Footer, MobileNav, CartSlideOver)
+│   ├── products/ (ProductCard, ProductGallery, VariantPicker, FilterSidebar)
+│   ├── providers/ (AppProviders, SessionProvider, CurrencyProvider)
+│   └── ui/ (Button, Input, Modal, Dropdown, Accordion, Badge, Toast)
+├── lib/
+│   ├── events/
+│   ├── models/
+│   ├── services/
+│   ├── utils/
+│   ├── validations/
+│   ├── admin-request-access.ts
+│   ├── admin-session.ts
+│   ├── auth-bootstrap.ts
+│   ├── auth-env.ts
+│   ├── auth.ts
+│   ├── authz.ts
+│   ├── checkout.ts
+│   ├── cloudinary.ts
+│   ├── db.ts
+│   ├── rateLimit.ts
+│   ├── security.ts
+│   ├── seed.ts
+│   └── utils.ts
+├── store/
+│   ├── cart.ts
+│   └── wishlist.ts
+├── types/
+│   ├── enquiry.ts
+│   └── product.ts
+├── public/
+│   └── images/
+├── .env.local
+├── components.json
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+└── tsconfig.json
+```
+
+================================================================================
+# 4. HOW TO PROCESS THE RESOURCE FOLDER
+================================================================================
+
+Step 1: Inspect the user's `resource/` directory in the target workspace.
+  - Read color palettes, design guidelines, and hex tokens.
+  - Read brand assets (SVG/PNG logos, favicons, hero banners, category thumbnails).
+  - Read UI wireframes, page component specifications, and copy.
+  - Read API credentials (.env variables).
+
+Step 2: Inject Brand Colors into `app/globals.css`:
+  - Do NOT assume color values. Read the exact colors from `resource/`.
+  - Configure Tailwind CSS v4 `@theme inline`:
+    ```css
+    @import "tailwindcss";
+    @import "shadcn/tailwind.css";
+
+    @custom-variant dark (&:is(.dark *));
+
+    @theme inline {
+      --color-background: var(--background);
+      --color-foreground: var(--foreground);
+
+      /* Injected from resource folder */
+      --color-primary: <RESOURCE_PRIMARY_COLOR>;
+      --color-primary-foreground: <RESOURCE_PRIMARY_FG>;
+      --color-secondary: <RESOURCE_SECONDARY_COLOR>;
+      --color-secondary-foreground: <RESOURCE_SECONDARY_FG>;
+      --color-accent: <RESOURCE_ACCENT_COLOR>;
+      --color-accent-foreground: <RESOURCE_ACCENT_FG>;
+
+      /* Brand palette scales */
+      --color-brand-50:  <HEX_50>;
+      --color-brand-100: <HEX_100>;
+      --color-brand-500: <HEX_500>;
+      --color-brand-700: <HEX_700>;
+      --color-brand-900: <HEX_900>;
+    }
+    ```
+
+Step 3: Transfer Logos & Media:
+  - Copy logos from `resource/` to `public/images/logo.svg` / `logo.png`.
+  - Update `StoreHeader.tsx`, `Footer.tsx`, and `lib/utils/seo.ts` with brand name "Yoglivya" and logo paths.
+
+Step 4: Restyle Admin & Customer Portals:
+  - Maintain all functional UI elements from Almina.
+  - Apply the new brand tokens (`var(--color-primary)`) to buttons, active navigation states, badges, and focus borders.
+
+================================================================================
+# 5. ENVIRONMENT SETUP (.env.local)
+================================================================================
+
+Populate `.env.local` using the credentials found in `resource/`:
+
+```env
+# Database
+MONGODB_URI=<PROVIDED_MONGODB_URI>
+
+# Site & App URLs
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# NextAuth v5
+AUTH_SECRET=<PROVIDED_OR_GENERATED_AUTH_SECRET>
+AUTH_URL=http://localhost:3000
+
+# Google OAuth
+GOOGLE_CLIENT_ID=<PROVIDED_GOOGLE_CLIENT_ID>
+GOOGLE_CLIENT_SECRET=<PROVIDED_GOOGLE_CLIENT_SECRET>
+NEXT_PUBLIC_GOOGLE_AUTH_ENABLED=true
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=<PROVIDED_CLOUDINARY_CLOUD_NAME>
+CLOUDINARY_API_KEY=<PROVIDED_CLOUDINARY_API_KEY>
+CLOUDINARY_API_SECRET=<PROVIDED_CLOUDINARY_API_SECRET>
+
+# Admin Credentials
+ADMIN_EMAIL=admin@yoglivya.com
+ADMIN_PASSWORD=Yoglivya@2026
+
+# Razorpay
+RAZORPAY_KEY_ID=<PROVIDED_RAZORPAY_KEY_ID>
+RAZORPAY_SECRET=<PROVIDED_RAZORPAY_SECRET>
+RAZORPAY_WEBHOOK_SECRET=<PROVIDED_RAZORPAY_WEBHOOK_SECRET>
+NEXT_PUBLIC_RAZORPAY_KEY_ID=<PROVIDED_RAZORPAY_KEY_ID>
+
+# Resend Email Engine
+RESEND_API_KEY=<PROVIDED_RESEND_API_KEY>
+SENDER_EMAIL=orders@yoglivya.com
+SENDER_NAME="Yoglivya"
+CONTACT_NOTIFICATION_EMAIL=support@yoglivya.com
+```
+
+================================================================================
+# 6. YOGA SEED CATALOGUE (lib/seed.ts)
+================================================================================
+
+Build a Yoga-specific seed script in `lib/seed.ts` (modelled after `c:\Code-work\E-commerce\lib\seed.ts`) with realistic yoga categories:
+1. Yoga Mats (Non-slip PU, Natural Tree Rubber, Travel Mats)
+2. Yoga Props & Blocks (High-density Cork Blocks, Cotton Straps, Wheels)
+3. Meditation & Bolsters (Ergonomic Zafu, Buckwheat Bolsters)
+4. Mindful Activewear (Bamboo Leggings, Breathable Tops)
+5. Mat Care & Wellness (Organic Mat Cleaner, Essential Oils)
+
+Admin Seed User:
+- Email: `admin@yoglivya.com`
+- Password: `Yoglivya@2026`
+
+================================================================================
+# 7. EXECUTION RUNBOOK FOR ANTIGRAVITY AGENT
+================================================================================
+
+Step 1: Inspect `resource/` in the target workspace to gather all brand assets, colors, and API keys.
+Step 2: Create the full directory structure defined in Section 3.
+Step 3: Setup `package.json`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, and `.env.local`. Run `npm install`.
+Step 4: Configure `app/globals.css` with the brand colors extracted from `resource/`.
+Step 5: Read source code from `c:\Code-work\E-commerce`:
+        - Copy models from `c:\Code-work\E-commerce\lib\models\` to `lib/models/`.
+        - Copy auth and services from `c:\Code-work\E-commerce\lib\` to `lib/`.
+        - Copy stores from `c:\Code-work\E-commerce\store\` to `store/`.
+        - Copy APIs from `c:\Code-work\E-commerce\app\api\` to `app/api/`.
+Step 6: Copy and re-theme Admin Views (`components/admin/`, `app/(auth)/admin/`) and Customer Views (`components/account/`, `app/(frontend)/account/`).
+Step 7: Build front-end pages (Home, Shop, Product Detail, Header, Footer) adhering to the designs in `resource/`.
+Step 8: Run `npm run seed` to seed MongoDB with initial yoga products and the admin account.
+Step 9: Run `npm run build` to confirm zero TypeScript, JSX, or App Router compilation errors.
+Step 10: Test and verify:
+         - Admin login at `/admin/login` (`admin@yoglivya.com` / `Yoglivya@2026`)
+         - Product catalog & variant selector
+         - Cart persistence across page reload
+         - Checkout initiation and Razorpay order creation.
+
+================================================================================
+END OF INSTRUCTIONS — ALMINA TO YOGLIVYA CLONING PROTOCOL
+================================================================================

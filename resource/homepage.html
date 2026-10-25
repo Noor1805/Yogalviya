@@ -1,0 +1,1643 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Yoglivya — Premium Yoga & Wellness</title>
+    <style>
+      :root {
+        --ink: #1c211d;
+        --muted: #77766f;
+        --line: #e7e5df;
+        --cream: #f5f3ed;
+        --green: #26352b;
+        --gold: #a08758;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font:
+          14px Arial,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .top {
+        background: var(--green);
+        color: #fff;
+        text-align: center;
+        padding: 9px;
+        font-size: 10px;
+        letter-spacing: 0.13em;
+      }
+      header {
+        height: 72px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5%;
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 10;
+      }
+      .logo {
+        font:
+          25px Georgia,
+          serif;
+        letter-spacing: 0.14em;
+      }
+      .nav {
+        display: flex;
+        gap: 30px;
+        font-size: 12px;
+      }
+      .icons {
+        display: flex;
+        gap: 17px;
+        font-size: 18px;
+      }
+      .hero {
+        margin: 18px 2.5%;
+        min-height: 650px;
+        background: var(--cream);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+      .hero-copy {
+        padding: 8%;
+        max-width: 600px;
+      }
+      .kicker {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #827a68;
+      }
+      .hero h1 {
+        font:
+          400 clamp(42px, 5vw, 70px)/1.02 Georgia,
+          serif;
+        margin: 14px 0 20px;
+      }
+      .hero p {
+        color: #686860;
+        line-height: 1.8;
+        max-width: 450px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 14px 24px;
+        border: 1px solid var(--green);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-top: 18px;
+      }
+      .dark {
+        background: var(--green);
+        color: #fff;
+      }
+      .hero-art {
+        height: 100%;
+        min-height: 650px;
+        background: linear-gradient(145deg, #e8e4d8, #d9d7c9);
+        display: grid;
+        place-items: center;
+      }
+      .hero-art:after {
+        content: "YOGLIVYA · LIVING THE YOGIC WAY";
+        font:
+          12px Georgia,
+          serif;
+        letter-spacing: 0.18em;
+        color: #666b60;
+      }
+      .wrap {
+        max-width: 1240px;
+        margin: auto;
+        padding: 70px 25px;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 26px;
+      }
+      .section-head h2 {
+        font:
+          400 31px Georgia,
+          serif;
+        margin: 6px 0;
+      }
+      .view {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border-bottom: 1px solid #222;
+        padding-bottom: 4px;
+      }
+      .categories {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+      .cat {
+        background: var(--cream);
+        aspect-ratio: 1/0.9;
+        display: flex;
+        align-items: end;
+        padding: 18px;
+        font:
+          20px Georgia,
+          serif;
+      }
+      .cat small {
+        display: block;
+        font: 10px Arial;
+        color: #777;
+        margin-top: 6px;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .pimg {
+        background: var(--cream);
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        color: #999;
+        font-size: 9px;
+        position: relative;
+      }
+      .badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #fff;
+        padding: 6px 8px;
+        font-size: 9px;
+        letter-spacing: 0.08em;
+      }
+      .product h3 {
+        font:
+          400 17px Georgia,
+          serif;
+        margin: 12px 0 5px;
+      }
+      .product p {
+        margin: 0;
+        color: #777;
+        font-size: 11px;
+      }
+      .price {
+        color: #222 !important;
+        margin-top: 6px !important;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .story {
+        background: var(--green);
+        color: #fff;
+        padding: 10%;
+        min-height: 430px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .story h2 {
+        font:
+          400 38px Georgia,
+          serif;
+        line-height: 1.1;
+      }
+      .story p {
+        color: #cdd2cc;
+        line-height: 1.8;
+        max-width: 470px;
+      }
+      .story .btn {
+        border-color: #fff;
+      }
+      .visual {
+        background: var(--cream);
+        min-height: 430px;
+        display: grid;
+        place-items: center;
+        color: #8a887f;
+        letter-spacing: 0.12em;
+        font-size: 10px;
+      }
+      .education {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .edu {
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+      }
+      .edu-img {
+        background: var(--cream);
+        aspect-ratio: 1.3;
+        margin-bottom: 15px;
+        display: grid;
+        place-items: center;
+        color: #999;
+        font-size: 9px;
+      }
+      .edu h3 {
+        font:
+          400 20px Georgia,
+          serif;
+      }
+      .edu p {
+        color: #777;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      .reviewband {
+        background: #f7f6f2;
+        padding: 65px 6%;
+        text-align: center;
+      }
+      .reviewband h2 {
+        font:
+          400 32px Georgia,
+          serif;
+      }
+      .stars {
+        letter-spacing: 3px;
+      }
+      .reviews {
+        max-width: 1050px;
+        margin: 25px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        text-align: left;
+      }
+      .review {
+        background: #fff;
+        padding: 22px;
+        border: 1px solid var(--line);
+      }
+      .review p {
+        color: #666;
+        line-height: 1.6;
+        font-size: 12px;
+      }
+      .review small {
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+      .journal {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 16px;
+      }
+      .article-img {
+        background: var(--cream);
+        aspect-ratio: 1.35;
+        display: grid;
+        place-items: center;
+        color: #999;
+        font-size: 9px;
+      }
+      .article h3 {
+        font:
+          400 20px Georgia,
+          serif;
+        margin: 12px 0 6px;
+      }
+      .article p {
+        font-size: 11px;
+        color: #777;
+        line-height: 1.5;
+      }
+      .article:first-child h3 {
+        font-size: 25px;
+      }
+      .newsletter {
+        background: var(--cream);
+        padding: 55px 8%;
+        text-align: center;
+      }
+      .newsletter h2 {
+        font:
+          400 30px Georgia,
+          serif;
+        margin: 7px;
+      }
+      .newsletter p {
+        color: #777;
+        font-size: 12px;
+      }
+      .email {
+        margin: 20px auto 0;
+        display: flex;
+        max-width: 480px;
+      }
+      .email input {
+        flex: 1;
+        border: 1px solid var(--line);
+        padding: 14px;
+        background: #fff;
+      }
+      .email button {
+        border: 0;
+        background: var(--green);
+        color: #fff;
+        padding: 0 20px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+      footer {
+        background: var(--green);
+        color: #eee;
+        padding: 55px 6%;
+        display: grid;
+        grid-template-columns: 2fr repeat(5, 1fr);
+        gap: 28px;
+      }
+      .flogo {
+        font:
+          25px Georgia,
+          serif;
+        letter-spacing: 0.12em;
+      }
+      .foot h4 {
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        margin: 0 0 14px;
+      }
+      .foot a {
+        display: block;
+        color: #bbb;
+        font-size: 11px;
+        margin: 10px 0;
+      }
+      .foot-toggle {
+        display: none;
+      }
+      @media (max-width: 800px) {
+        header {
+          height: 62px;
+          padding: 0 16px;
+        }
+        .nav {
+          display: none;
+        }
+        .icons {
+          gap: 13px;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          margin: 10px;
+          min-height: auto;
+        }
+        .hero-copy {
+          padding: 45px 28px;
+        }
+        .hero-art {
+          min-height: 330px;
+        }
+        .wrap {
+          padding: 48px 16px;
+        }
+        .categories {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .products {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .split {
+          grid-template-columns: 1fr;
+        }
+        .education,
+        .reviews {
+          grid-template-columns: 1fr;
+        }
+        .journal {
+          grid-template-columns: 1fr;
+        }
+        .journal .article:not(:first-child) {
+          display: grid;
+          grid-template-columns: 110px 1fr;
+          gap: 12px;
+        }
+        .newsletter {
+          padding: 45px 20px;
+        }
+        footer {
+          grid-template-columns: 1fr;
+          padding: 40px 22px;
+        }
+        .foot {
+          border-top: 1px solid #435047;
+          padding-top: 14px;
+        }
+        .foot a {
+          display: none;
+        }
+        .foot-toggle {
+          display: block;
+          float: right;
+        }
+        .flogo {
+          margin-bottom: 10px;
+        }
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      .hero-art {
+        position: relative;
+        overflow: hidden;
+        background: #e8e4d8;
+      }
+      .hero-art img {
+        width: 100%;
+        height: 100%;
+        min-height: 650px;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+      }
+      .hero-art img,
+      .cat img,
+      .pimg img,
+      .story-photo,
+      .edu-img img,
+      .article-img img {
+        background: #e8e4d8;
+      }
+      .hero-art:after {
+        position: absolute;
+        bottom: 22px;
+        right: 22px;
+        background: #f5f3edcc;
+        padding: 10px 12px;
+      }
+      .cat {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        min-height: 190px;
+        color: #fff;
+        background: #d9d7c9;
+      }
+      .cat:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, #17251dcc, transparent 72%);
+        z-index: -1;
+      }
+      .cat img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+        transition: transform 0.35s;
+      }
+      .cat:hover img {
+        transform: scale(1.05);
+      }
+      .cat small {
+        color: #f0eee8;
+      }
+      .pimg {
+        overflow: hidden;
+        background: #f0eee7;
+      }
+      .pimg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+      .product:hover .pimg img {
+        transform: scale(1.04);
+      }
+      .product-buy-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 7px;
+        margin: 11px 0 5px;
+        min-width: 0;
+      }
+      .product-buy-row h3 {
+        font:
+          400 13px/1.25 Georgia,
+          serif;
+        margin: 0;
+        min-width: 0;
+        flex: 1;
+      }
+      .product-buy-row .cart-btn {
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 7px 8px;
+        font-size: 8px;
+        letter-spacing: 0.035em;
+      }
+      .cart-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        max-width: 100%;
+        margin-top: 10px;
+        padding: 9px 13px;
+        border: 1px solid var(--green);
+        border-radius: 2px;
+        background: var(--green);
+        color: #fff;
+        font-size: 9px;
+        line-height: 1.2;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .product {
+        min-width: 0;
+      }
+      .product-buy-row .cart-btn {
+        max-width: 96px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      @media (max-width: 1050px) {
+        .product-buy-row {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 7px;
+        }
+        .product-buy-row .cart-btn {
+          max-width: none;
+        }
+        .product-buy-row h3 {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 800px) {
+        .product-buy-row {
+          align-items: center;
+          flex-direction: row;
+          gap: 6px;
+        }
+        .product-buy-row h3 {
+          font-size: 12px;
+        }
+        .product-buy-row .cart-btn {
+          max-width: 88px;
+          padding: 7px 6px;
+          font-size: 7px;
+        }
+      }
+      .cart-btn:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+      .cart-btn.added {
+        background: var(--gold);
+        border-color: var(--gold);
+      }
+      .cart-btn:hover {
+        background: #fff;
+        color: var(--green);
+      }
+      .story-photo {
+        width: 100%;
+        height: 100%;
+        min-height: 430px;
+        object-fit: cover;
+      }
+      .visual {
+        overflow: hidden;
+        padding: 0;
+      }
+      .edu-img,
+      .article-img {
+        overflow: hidden;
+        background: #eee;
+      }
+      .edu-img img,
+      .article-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .review-person {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid #f0eee8;
+      }
+      .review-person > div {
+        min-width: 0;
+      }
+      .review-person strong {
+        line-height: 1.35;
+      }
+      .review .stars-small {
+        color: #a08758;
+        margin-bottom: 8px;
+      }
+      .review p {
+        margin: 6px 0 0;
+      }
+      .review-person img {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #f0eee8;
+        background: #e8e4d8;
+      }
+      .review-person strong {
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .review-person span {
+        display: block;
+        font-size: 9px;
+        color: #777;
+        margin-top: 3px;
+        letter-spacing: 0.04em;
+      }
+      .review .stars-small {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+      .review {
+        display: flex;
+        flex-direction: column;
+      }
+      .review p {
+        flex: 1;
+      }
+      .email button {
+        cursor: pointer;
+      }
+      .email button:hover {
+        opacity: 0.88;
+      }
+      @media (max-width: 800px) {
+        .hero-art img {
+          min-height: 330px;
+        }
+        .cat {
+          min-height: 155px;
+        }
+        .story-photo {
+          min-height: 300px;
+        }
+        .review-person img {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      /* Final refinement: discreet icon-only cart and product-specific imagery */
+      .product-buy-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 11px 0 5px;
+        min-width: 0;
+      }
+      .product-buy-row h3 {
+        font:
+          400 15px/1.25 Georgia,
+          serif;
+        margin: 0;
+        min-width: 0;
+        flex: 1;
+      }
+      .cart-btn {
+        flex: 0 0 36px !important;
+        width: 36px;
+        height: 36px;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+        border-radius: 50% !important;
+        background: #e9e9dc !important;
+        color: #26352b !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .cart-btn svg {
+        width: 19px;
+        height: 19px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.45;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .cart-btn:hover {
+        background: #d9ddca !important;
+        color: #26352b !important;
+        transform: translateY(-1px);
+      }
+      .cart-btn.added {
+        background: #26352b !important;
+        color: #fff !important;
+      }
+      .product-buy-row .cart-btn {
+        max-width: none;
+        overflow: visible;
+      }
+      .product .pimg {
+        aspect-ratio: 1;
+        background: #e9e4d8;
+        display: block;
+        position: relative;
+        overflow: hidden;
+      }
+      .product .pimg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .product .pimg img.product-art {
+        object-fit: cover;
+      }
+      @media (max-width: 800px) {
+        .product-buy-row {
+          flex-direction: row;
+          align-items: center;
+          gap: 7px;
+        }
+        .product-buy-row h3 {
+          font-size: 13px;
+        }
+        .cart-btn {
+          flex-basis: 32px !important;
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      /* Real photography only: do not substitute decorative SVG illustrations for failed photos */
+      .hero-art {
+        overflow: hidden;
+        position: relative;
+      }
+      .hero-art:after {
+        display: none;
+      }
+      .hero-art img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 650px;
+        object-fit: cover;
+      }
+      .cat {
+        position: relative;
+        overflow: hidden;
+        padding: 0 !important;
+        color: #fff !important;
+      }
+      .cat img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .cat:after {
+        content: "";
+        position: absolute;
+        inset: 35% 0 0;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(20, 30, 23, 0.72)
+        );
+      }
+      .cat span {
+        position: relative;
+        z-index: 1;
+        padding: 18px;
+        display: block;
+        color: #fff;
+        font:
+          20px Georgia,
+          serif;
+      }
+      .cat small {
+        color: #fff !important;
+      }
+      .visual,
+      .edu-img,
+      .article-img {
+        overflow: hidden;
+        position: relative;
+        display: block;
+      }
+      .visual img,
+      .edu-img img,
+      .article-img img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: cover;
+      }
+      .edu-img {
+        aspect-ratio: 1.3;
+      }
+      .article-img {
+        aspect-ratio: 1.35;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      PAN-INDIA DELIVERY · COD AVAILABLE · PREMIUM YOGA & WELLNESS
+    </div>
+    <header>
+      <a class="logo" href="#">YOGLIVYA</a>
+      <nav class="nav">
+        <a href="#">Shop</a><a href="#">Wellness</a><a href="#">Journal</a>
+      </nav>
+      <div class="icons">⌕ ♙ ♡ 🛍</div>
+    </header>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="kicker">Living the Yogic Way</div>
+        <h1>Practice with purpose.</h1>
+        <p>
+          Premium yoga props and wellness essentials designed to bring greater
+          support, alignment and intention to your daily practice.
+        </p>
+        <a class="btn dark" href="#">Shop Collection</a>
+      </div>
+      <div class="hero-art">
+        <img
+          src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85"
+          alt="Woman practicing yoga in a calm studio"
+        />
+      </div>
+    </section>
+    <main>
+      <section class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Explore</div>
+            <h2>Shop by Category</h2>
+          </div>
+        </div>
+        <div class="categories">
+          <a class="cat" href="#"
+            ><img
+              src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=600&q=85"
+              alt="Yoga Props"
+            /><span>Yoga Props<small>Support your practice</small></span></a
+          ><a class="cat" href="#"
+            ><img
+              src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=600&q=85"
+              alt="Yoga Mats"
+            /><span>Yoga Mats<small>Ground your practice</small></span></a
+          ><a class="cat" href="#"
+            ><img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=85"
+              alt="Meditation"
+            /><span>Meditation<small>Create stillness</small></span></a
+          ><a class="cat" href="#"
+            ><img
+              src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=85"
+              alt="Wellness"
+            /><span>Wellness<small>Everyday rituals</small></span></a
+          ><a class="cat" href="#"
+            ><img
+              src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&w=600&q=80"
+              alt="Accessories"
+            /><span>Accessories<small>Practice essentials</small></span></a
+          >
+        </div>
+      </section>
+      <section class="wrap" style="padding-top: 20px">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Most Loved</div>
+            <h2>Bestsellers</h2>
+          </div>
+          <a class="view" href="#">View All</a>
+        </div>
+        <div class="products">
+          <div class="product">
+            <div class="pimg">
+              <span class="badge">BESTSELLER</span
+              ><img
+                src="https://images.unsplash.com/photo-1599447292180-45fd84092ef4?auto=format&fit=crop&w=700&q=80"
+                alt="Premium Cotton Yoga Belt yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Premium Cotton Yoga Belt</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Army Green · 10 FT</p>
+            <p class="price">₹349</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=700&q=80"
+                alt="Premium Yoga Wheel yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Premium Yoga Wheel</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Support & Mobility</p>
+            <p class="price">₹1,649</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <span class="badge">BESTSELLER</span
+              ><img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80"
+                alt="Iyengar Yoga Rope yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Iyengar Yoga Rope</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Spun Cotton</p>
+            <p class="price">₹799</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&w=700&q=80"
+                alt="Yoga Bolster yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Yoga Bolster</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Premium Support</p>
+            <p class="price">₹1,299</p>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Just In</div>
+            <h2>New Arrivals</h2>
+          </div>
+          <a class="view" href="#">View All</a>
+        </div>
+        <div class="products">
+          <div class="product">
+            <div class="pimg">
+              <span class="badge">NEW</span
+              ><img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80"
+                alt="Trataka Stand yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Trataka Stand</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Mindful Focus</p>
+            <p class="price">₹1,399</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <span class="badge">NEW</span
+              ><img
+                src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=700&q=80"
+                alt="Practice Journal yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Practice Journal</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Daily Reflection</p>
+            <p class="price">₹499</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=700&q=80"
+                alt="Premium Hammock yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Premium Hammock</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Aerial Practice</p>
+            <p class="price">₹2,499</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80"
+                alt="Wellness Potli yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Wellness Potli</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Traditional Ritual</p>
+            <p class="price">₹699</p>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Popular Right Now</div>
+            <h2>Trending</h2>
+          </div>
+          <a class="view" href="#">Explore</a>
+        </div>
+        <div class="products">
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=700&q=80"
+                alt="Sutra Neti yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Sutra Neti</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Traditional Practice</p>
+            <p class="price">₹299</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1599447292180-45fd84092ef4?auto=format&fit=crop&w=700&q=80"
+                alt="Yoga Rope Set yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Yoga Rope Set</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Spun Cotton</p>
+            <p class="price">₹450</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=700&q=80"
+                alt="Yoga Strap yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Yoga Strap</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Everyday Mobility</p>
+            <p class="price">₹349</p>
+          </div>
+          <div class="product">
+            <div class="pimg">
+              <img
+                src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=700&q=80"
+                alt="Vastra Dhauti yoga wellness product"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-buy-row">
+              <h3>Vastra Dhauti</h3>
+              <button
+                class="cart-btn"
+                type="button"
+                aria-label="Add to cart"
+                title="Add to cart"
+                onclick="addToCart(this)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 8h14l-1 13H6L5 8Z" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+                </svg>
+              </button>
+            </div>
+            <p>Traditional Wellness</p>
+            <p class="price">₹599</p>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="split">
+          <div class="story">
+            <div class="kicker" style="color: #c7b995">Our Philosophy</div>
+            <h2>Designed for the practice. Considered for everyday life.</h2>
+            <p>
+              Yoglivya brings traditional yoga knowledge and modern product
+              design together — creating beautiful, functional tools for a more
+              intentional practice.
+            </p>
+            <a class="btn" href="#">Discover Yoglivya</a>
+          </div>
+          <div class="visual">
+            <img
+              class="story-photo"
+              src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1100&q=85"
+              alt="Yoga and mindful wellness lifestyle"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Learn & Practice</div>
+            <h2>Yoga Education</h2>
+          </div>
+          <a class="view" href="#">Explore Journal</a>
+        </div>
+        <div class="education">
+          <article class="edu">
+            <div class="edu-img">
+              <img
+                src="https://nwscdn.com/media/wysiwyg/3kf/Yoga-Strap---Lifestyle03.jpg"
+                alt="Yoga education and practice"
+                loading="lazy"
+              />
+            </div>
+            <h3>How to choose the right yoga belt length</h3>
+            <p>
+              A practical guide to choosing 6 FT, 8 FT or 10 FT for your
+              practice.
+            </p>
+            <a class="view" href="#">Read Guide</a>
+          </article>
+          <article class="edu">
+            <div class="edu-img">
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80"
+                alt="Yoga education and practice"
+                loading="lazy"
+              />
+            </div>
+            <h3>Why yoga props matter for alignment</h3>
+            <p>
+              Understand how simple props can support stability, reach and
+              awareness.
+            </p>
+            <a class="view" href="#">Read Guide</a>
+          </article>
+          <article class="edu">
+            <div class="edu-img">
+              <img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80"
+                alt="Yoga education and practice"
+                loading="lazy"
+              />
+            </div>
+            <h3>A beginner's guide to yoga props</h3>
+            <p>
+              The essential props to start building a considered home practice.
+            </p>
+            <a class="view" href="#">Read Guide</a>
+          </article>
+        </div>
+      </section>
+      <section class="reviewband">
+        <div class="kicker">Real Practice</div>
+        <h2>Loved by Yoglivya customers</h2>
+        <div class="stars">★★★★★</div>
+        <div class="reviews">
+          <div class="review">
+            <div class="stars-small">★★★★★</div>
+            <p>
+              “The cotton feels premium and the belt has a secure grip during
+              practice.”
+            </p>
+            <div class="review-person">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80"
+                alt="Aarohi Sharma"
+                loading="lazy"
+              />
+              <div>
+                <strong>Aarohi Sharma</strong><span>Verified customer</span>
+              </div>
+            </div>
+          </div>
+          <div class="review">
+            <div class="stars-small">★★★★★</div>
+            <p>
+              “Beautiful quality and very thoughtfully made. Exactly what I
+              wanted.”
+            </p>
+            <div class="review-person">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80"
+                alt="Rohan Mehta"
+                loading="lazy"
+              />
+              <div>
+                <strong>Rohan Mehta</strong><span>Verified customer</span>
+              </div>
+            </div>
+          </div>
+          <div class="review">
+            <div class="stars-small">★★★★★</div>
+            <p>
+              “Simple, functional and feels much more premium than ordinary yoga
+              props.”
+            </p>
+            <div class="review-person">
+              <img
+                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&h=100&q=80"
+                alt="Meera Kapoor"
+                loading="lazy"
+              />
+              <div>
+                <strong>Meera Kapoor</strong><span>Verified customer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">From the Journal</div>
+            <h2>Ideas for your practice</h2>
+          </div>
+          <a class="view" href="#">View Journal</a>
+        </div>
+        <div class="journal">
+          <article class="article">
+            <div class="article-img">
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80"
+                alt="Featured yoga practice article"
+                loading="lazy"
+              />
+            </div>
+            <h3>Building a more intentional home yoga practice</h3>
+            <p>
+              Simple ways to make your practice consistent, comfortable and
+              purposeful.
+            </p>
+            <a class="view" href="#">Read Article</a>
+          </article>
+          <article class="article">
+            <div class="article-img">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR49I6qJQZRmOtvOJIHEWBVmv-5Hc-Tq6q7MTsaQhtv4sEL7QHMipxCPH4u&s=10"
+                alt="Yoga props guide"
+                loading="lazy"
+              />
+            </div>
+            <h3>Yoga props explained</h3>
+            <p>What each essential prop actually does.</p>
+            <a class="view" href="#">Read</a>
+          </article>
+          <article class="article">
+            <div class="article-img">
+              <img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"
+                alt="Yoga and everyday wellness"
+                loading="lazy"
+              />
+            </div>
+            <h3>Yoga & everyday wellness</h3>
+            <p>Small rituals that support a calmer routine.</p>
+            <a class="view" href="#">Read</a>
+          </article>
+        </div>
+      </section>
+      <section class="newsletter">
+        <div class="kicker">Stay Connected</div>
+        <h2>Practice. Learn. Live.</h2>
+        <p>
+          Join the Yoglivya journal for yoga, wellness and new product updates.
+        </p>
+        <div class="email">
+          <input placeholder="Your email address" /><button>JOIN</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <div class="flogo">YOGLIVYA</div>
+        <p
+          style="
+            color: #aaa;
+            font-size: 11px;
+            line-height: 1.7;
+            max-width: 260px;
+          "
+        >
+          Premium yoga props and wellness essentials designed for a considered
+          daily practice.
+        </p>
+      </div>
+      <div class="foot">
+        <h4>SHOP</h4>
+        <a href="#">All Products</a><a href="#">Yoga Props</a
+        ><a href="#">Yoga Mats</a><a href="#">Bestsellers</a
+        ><a href="#">New Arrivals</a>
+      </div>
+      <div class="foot">
+        <h4>ABOUT</h4>
+        <a href="#">Our Story</a><a href="#">Our Philosophy</a
+        ><a href="#">Journal</a>
+      </div>
+      <div class="foot">
+        <h4>HELP</h4>
+        <a href="#">Contact Us</a><a href="#">Shipping & Delivery</a
+        ><a href="#">Returns & Refunds</a><a href="#">FAQs</a
+        ><a href="#">Track Order</a>
+      </div>
+      <div class="foot">
+        <h4>BUSINESS</h4>
+        <a href="#">Bulk / Wholesale</a><a href="#">Studio Orders</a
+        ><a href="#">Corporate Orders</a>
+      </div>
+      <div class="foot">
+        <h4>LEGAL</h4>
+        <a href="#">Privacy Policy</a><a href="#">Terms</a
+        ><a href="#">Refund Policy</a>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        const palette = {
+          cream: "#eee8dc",
+          green: "#26352b",
+          sage: "#8c9b82",
+          sand: "#c8b58d",
+          rope: "#d7c5a7",
+          clay: "#c88f70",
+        };
+
+        const productPhotos = {
+          "premium cotton yoga belt":
+            "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=900&q=85",
+          "premium yoga wheel":
+            "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=900&q=85",
+          "iyengar yoga rope":
+            "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85",
+          "yoga bolster":
+            "https://www.yogamatters.com/cdn/shop/files/Untitled_design_48_6fb81588-297a-4825-a94a-cf226c2a255a.png?v=1775035751",
+          "trataka stand":
+            "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85",
+          "practice journal":
+            "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=900&q=85",
+          "premium hammock":
+            "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85",
+          "wellness potli":
+            "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85",
+          "sutra neti":
+            "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85",
+          "yoga rope set":
+            "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=900&q=85",
+          "yoga strap":
+            "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=900&q=85",
+          "vastra dhauti":
+            "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=85",
+        };
+
+        document.querySelectorAll(".product").forEach((card) => {
+          const img = card.querySelector(".pimg img");
+          const title = card.querySelector("h3");
+          if (!img || !title) return;
+          const key = title.textContent.trim().toLowerCase();
+          const src = productPhotos[key];
+          if (src) {
+            img.src = src;
+            img.alt = title.textContent.trim();
+            img.classList.remove("product-art");
+            img.loading = "lazy";
+            img.onerror = function () {
+              this.onerror = null;
+              this.style.display = "none";
+              const holder = this.closest(".pimg");
+              if (holder) {
+                holder.style.background = "#e9e4d8";
+                holder.setAttribute(
+                  "aria-label",
+                  title.textContent + " image unavailable",
+                );
+              }
+            };
+          }
+        });
+      })();
+    </script>
+
+    <script>
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("error", function () {
+          this.style.display = "none";
+          const holder = this.closest(
+            ".hero-art,.cat,.visual,.edu-img,.article-img,.pimg",
+          );
+          if (holder) {
+            holder.style.background = "#e9e4d8";
+            holder.setAttribute("aria-label", this.alt + " photo unavailable");
+          }
+        });
+      });
+    </script>
+
+    <script>
+      function addToCart(button) {
+        const original = button.innerHTML;
+        button.innerHTML =
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>';
+        button.setAttribute("aria-label", "Added to cart");
+        button.title = "Added to cart";
+        button.classList.add("added");
+        window.setTimeout(() => {
+          button.innerHTML = original;
+          button.setAttribute("aria-label", "Add to cart");
+          button.title = "Add to cart";
+          button.classList.remove("added");
+        }, 1600);
+      }
+    </script>
+  </body>
+</html>
