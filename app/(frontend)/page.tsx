@@ -1,6 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import ResourceProductCard from "@/components/products/ResourceProductCard";
+import HeroSlider from "@/components/home/HeroSlider";
+import MarqueeBanner from "@/components/home/MarqueeBanner";
 import { buildMetadata, faqPageSchema } from "@/lib/utils/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import dbConnect from "@/lib/db";
@@ -216,95 +217,16 @@ export default async function HomePage() {
     <>
       <JsonLd data={faqPageSchema(homeFaqs)} />
 
-      {/* ═══════════════ SECTION 1: HERO (Resource Specification) ═══════════════ */}
-      <section className="mx-[2.5%] my-[18px] min-h-[580px] lg:min-h-[650px] bg-[#f5f3ed] grid grid-cols-1 md:grid-cols-2 items-center overflow-hidden rounded-[2px]">
-        {/* Left Copy */}
-        <div className="p-8 sm:p-12 lg:p-16 max-w-[600px]">
-          <div className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-            Living the Yogic Way
-          </div>
-          <h1 
-            className="text-[42px] sm:text-[54px] lg:text-[68px] font-normal leading-[1.04] text-[#1c211d] mt-3.5 mb-5"
-            style={{ fontFamily: 'Georgia, serif' }}
-          >
-            Practice with purpose.
-          </h1>
-          <p className="text-[13.5px] sm:text-[14px] leading-[1.8] text-[#686860] max-w-[450px]">
-            Premium yoga props and wellness essentials designed to bring greater
-            support, alignment and intention to your daily practice.
-          </p>
-          <Link
-            href="/products"
-            className="inline-block mt-6 px-6 py-3.5 bg-[#26352b] text-white text-[10px] tracking-[0.14em] uppercase font-semibold border border-[#26352b] hover:bg-transparent hover:text-[#26352b] transition-colors"
-          >
-            Shop Collection
-          </Link>
-        </div>
+      <HeroSlider />
+      <MarqueeBanner />
 
-        {/* Right Art */}
-        <div className="relative h-[380px] md:h-full min-h-[380px] md:min-h-[650px] bg-[#e8e4d8] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85"
-            alt="Woman practicing yoga in a calm studio"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 2: SHOP BY CATEGORY ═══════════════ */}
-      <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-14 sm:py-16">
-        <div className="flex items-end justify-between mb-7">
-          <div>
-            <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-              Explore
-            </span>
-            <h2 
-              className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              Shop by Category
-            </h2>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5">
-          {categories.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/products/${cat.slug}`}
-              className="group relative aspect-[1/0.95] overflow-hidden rounded-[2px] bg-[#d9d7c9] flex items-end p-4 text-white"
-            >
-              <img
-                src={cat.image}
-                alt={cat.name}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#17251de0] via-[#17251d55] to-transparent z-[1]" />
-              <div className="relative z-[2]">
-                <span 
-                  className="block text-[17px] sm:text-[19px] font-normal leading-tight"
-                  style={{ fontFamily: 'Georgia, serif' }}
-                >
-                  {cat.name}
-                </span>
-                <small className="block text-[10px] text-[#f0eee8] mt-1 font-sans">
-                  {cat.tagline}
-                </small>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 3: BESTSELLERS ═══════════════ */}
-      <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-8 sm:py-10">
+      <section id="bestsellers" className="max-w-[1240px] mx-auto px-5 sm:px-6 py-8 sm:py-10">
         <div className="flex items-end justify-between mb-7 border-b border-[#e7e5df] pb-4">
           <div>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
               Most Loved
             </span>
-            <h2 
+            <h2
               className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
               style={{ fontFamily: 'Georgia, serif' }}
             >
@@ -332,6 +254,51 @@ export default async function HomePage() {
               image={item.image}
               badge={index === 0 || index === 2 ? 'BESTSELLER' : undefined}
             />
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-14 sm:py-16">
+        <div className="flex items-end justify-between mb-7">
+          <div>
+            <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
+              Explore
+            </span>
+            <h2
+              className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
+              style={{ fontFamily: 'Georgia, serif' }}
+            >
+              Shop by Category
+            </h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5">
+          {categories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/products/${cat.slug}`}
+              className="group relative aspect-[1/0.95] overflow-hidden rounded-[2px] bg-[#d9d7c9] flex items-end p-4 text-white"
+            >
+              <img
+                src={cat.image}
+                alt={cat.name}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#17251de0] via-[#17251d55] to-transparent z-[1]" />
+              <div className="relative z-[2]">
+                <span
+                  className="block text-[17px] sm:text-[19px] font-normal leading-tight"
+                  style={{ fontFamily: 'Georgia, serif' }}
+                >
+                  {cat.name}
+                </span>
+                <small className="block text-[10px] text-[#f0eee8] mt-1 font-sans">
+                  {cat.tagline}
+                </small>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

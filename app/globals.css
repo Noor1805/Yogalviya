@@ -476,6 +476,17 @@ select:focus {
   animation-play-state: paused;
 }
 
+.home-marquee-track {
+  animation: home-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+@keyframes home-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Hide scrollbar but keep scroll functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
