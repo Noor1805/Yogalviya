@@ -53,7 +53,7 @@ export default function ResourceProductCard({
             {/* Image Container */}
             <Link
                 href={`/products/${categorySlug || 'yoga-props'}/${slug}`}
-                className="relative aspect-square w-full overflow-hidden bg-[#e9e4d8] rounded-[2px] block"
+                className="relative aspect-square w-full overflow-hidden bg-[#f0efea] rounded-[2px] block"
             >
                 {badge && (
                     <span className="absolute top-3 left-3 z-10 bg-white/95 backdrop-blur-sm px-2 py-1 text-[9px] font-semibold tracking-[0.08em] text-[#1c211d] shadow-sm uppercase">

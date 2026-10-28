@@ -10,6 +10,23 @@ import { normalizeProductDocumentForClient } from '@/lib/utils/product-serializa
 const staticProducts: Product[] = [];
 const staticCategories: CategoryInfo[] = [];
 
+const authenticProductImages: Record<string, string> = {
+    'premium-cotton-yoga-belt': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139071/yoglivya/products/yoga-belt.jpg',
+    'premium-yoga-wheel': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139075/yoglivya/products/yoga-wheel.jpg',
+    'iyengar-yoga-rope': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139065/yoglivya/products/iyengar-yoga-rope.jpg',
+    'yoga-bolster': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139072/yoglivya/products/yoga-bolster.jpg',
+    'trataka-stand': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139068/yoglivya/products/trataka-stand.jpg',
+    'practice-journal': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139065/yoglivya/products/practice-journal.jpg',
+    'premium-hammock': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139066/yoglivya/products/premium-hammock.jpg',
+    'wellness-potli': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139070/yoglivya/products/wellness-potli.jpg',
+    'sutra-neti': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139067/yoglivya/products/sutra-neti.jpg',
+    'yoga-rope-set': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139073/yoglivya/products/yoga-rope-set.jpg',
+    'yoga-strap': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139075/yoglivya/products/yoga-strap.jpg',
+    'vastra-dhauti': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139069/yoglivya/products/vastra-dhauti.jpg',
+    'prana-grip-non-slip-pu-yoga-mat': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139081/yoglivya/categories/yoga-mats.png',
+    'organic-cork-yoga-mat': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139081/yoglivya/categories/yoga-mats.png',
+};
+
 // ── Helper to convert MongoDB doc to Product type ──────────────────────────
 function docToProduct(doc: Record<string, unknown>): Product {
     const productType = (doc.productType as Product['productType']) || 'simple';
@@ -19,7 +36,17 @@ function docToProduct(doc: Record<string, unknown>): Product {
     const gallery = normalizedClientShape.gallery;
     const colors = normalizedClientShape.colors;
     const variationSummary = summarizeVariations(variations || []);
-    const heroImage = String(doc.mainImage || doc.heroImage || gallery[0] || '').trim();
+    const slug = (doc.slug as string) || '';
+    const fallbackStudioImage = authenticProductImages[slug];
+    let heroImage = String(doc.mainImage || doc.heroImage || gallery[0] || '').trim();
+
+    if (fallbackStudioImage && (!heroImage || heroImage.includes('unsplash.com'))) {
+        heroImage = fallbackStudioImage;
+    }
+
+    const updatedGallery = fallbackStudioImage && (gallery.length === 0 || gallery.some(g => g.includes('unsplash.com')))
+        ? [fallbackStudioImage, ...gallery.filter(g => !g.includes('unsplash.com'))]
+        : gallery;
 
     let baseUSD = (doc.basePriceUSD as number) || (doc.price as number) || 0;
     let baseINR = (doc.basePriceINR as number) || 0;
@@ -60,7 +87,7 @@ function docToProduct(doc: Record<string, unknown>): Product {
         basePriceUSD: baseUSD,
         basePriceINR: baseINR,
         moq: (doc.moq || 10) as number,
-        images: gallery,
+        images: updatedGallery,
         aplusImages: normalizedClientShape.aplusImages,
         heroImage,
         features: normalizedClientShape.features,
@@ -110,6 +137,14 @@ async function _fetchProductBySlug(slug: string): Promise<Product | undefined> {
     return staticProducts.find((p) => p.slug === slug);
 }
 
+const authenticCategoryImages: Record<string, string> = {
+    'yoga-props': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139079/yoglivya/categories/yoga-blocks.png',
+    'yoga-mats': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139081/yoglivya/categories/yoga-mats.png',
+    'meditation': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139072/yoglivya/products/yoga-bolster.jpg',
+    'wellness': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139068/yoglivya/products/trataka-stand.jpg',
+    'accessories': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139078/yoglivya/categories/yoga-accessories.png',
+};
+
 async function _fetchAllCategories(): Promise<CategoryInfo[]> {
     try {
         await dbConnect();
@@ -119,7 +154,7 @@ async function _fetchAllCategories(): Promise<CategoryInfo[]> {
                 name: d.name as ProductCategory,
                 slug: d.slug,
                 description: d.description || '',
-                image: d.image || '',
+                image: (authenticCategoryImages[d.slug] || d.image || ''),
             }));
         }
     } catch (e) {

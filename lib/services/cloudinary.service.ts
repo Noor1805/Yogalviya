@@ -58,7 +58,7 @@ export const cloudinaryService = {
     async uploadFile(base64Data: string, folder: string, isVideo = false) {
         try {
             const result: any = await cloudinary.uploader.upload(base64Data, {
-                folder: `ecommerce/${folder}`,
+                folder: `yoglivya/${folder}`,
                 resource_type: 'auto',
                 // For videos we can create thumbnails, for images we just upload
                 eager: isVideo ? [{ width: 300, crop: 'pad', format: 'jpg' }] : undefined,
@@ -86,7 +86,7 @@ export const cloudinaryService = {
             logCloudinaryDebug('[Cloudinary] Folder:', folder);
 
             const commonOptions = {
-                folder: `ecommerce/${folder}`,
+                folder: `yoglivya/${folder}`,
                 resource_type: 'auto' as const,
                 eager: isVideo ? [{ width: 300, crop: 'pad', format: 'jpg' }] : undefined,
                 eager_async: isVideo,

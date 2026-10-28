@@ -8,7 +8,7 @@ cloudinary.config({
 
 export async function uploadImage(
     fileBuffer: Buffer,
-    folder: string = 'almina-couture/products'
+    folder: string = 'yoglivya/products'
 ): Promise<{ url: string; publicId: string }> {
     return new Promise((resolve, reject) => {
         cloudinary.uploader

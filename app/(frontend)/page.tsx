@@ -47,10 +47,30 @@ const homeFaqs = [
 ];
 
 export default async function HomePage() {
-  await dbConnect();
+  let rawProducts: any[] = [];
+  try {
+    await dbConnect();
+    rawProducts = await Product.find({ status: 'published' }).lean();
+  } catch (e) {
+    console.warn('DB query skipped, using local product catalog');
+  }
 
-  // Query products from MongoDB
-  const rawProducts = await Product.find({ status: 'published' }).lean();
+  const productImages: Record<string, string> = {
+    'premium-cotton-yoga-belt': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139071/yoglivya/products/yoga-belt.jpg',
+    'premium-yoga-wheel': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139075/yoglivya/products/yoga-wheel.jpg',
+    'iyengar-yoga-rope': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139065/yoglivya/products/iyengar-yoga-rope.jpg',
+    'yoga-bolster': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139072/yoglivya/products/yoga-bolster.jpg',
+    'trataka-stand': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139068/yoglivya/products/trataka-stand.jpg',
+    'practice-journal': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139065/yoglivya/products/practice-journal.jpg',
+    'premium-hammock': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139066/yoglivya/products/premium-hammock.jpg',
+    'wellness-potli': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139070/yoglivya/products/wellness-potli.jpg',
+    'sutra-neti': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139067/yoglivya/products/sutra-neti.jpg',
+    'yoga-rope-set': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139073/yoglivya/products/yoga-rope-set.jpg',
+    'yoga-strap': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139075/yoglivya/products/yoga-strap.jpg',
+    'vastra-dhauti': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139069/yoglivya/products/vastra-dhauti.jpg',
+    'prana-grip-non-slip-pu-yoga-mat': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139081/yoglivya/categories/yoga-mats.png',
+    'organic-cork-yoga-mat': 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139081/yoglivya/categories/yoga-mats.png',
+  };
 
   const products = rawProducts.map((p) => ({
     id: p._id.toString(),
@@ -59,10 +79,10 @@ export default async function HomePage() {
     categorySlug: p.categorySlug || 'yoga-props',
     shortDescription: p.shortDescription || '',
     priceINR: (p as any).priceINR || p.price || 999,
-    image: p.mainImage || (p.images && p.images[0]) || '',
+    image: productImages[p.slug] || p.mainImage || (p.images && p.images[0]) || '',
   }));
 
-  // Match the resource sections
+  // Match the resource sections with authentic yoga products on neutral studio gray background
   const bestsellers = [
     products.find((p) => p.slug === 'premium-cotton-yoga-belt') || {
       id: 'belt',
@@ -71,7 +91,7 @@ export default async function HomePage() {
       categorySlug: 'yoga-props',
       shortDescription: 'Army Green · 10 FT',
       priceINR: 349,
-      image: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139071/yoglivya/products/yoga-belt.jpg',
     },
     products.find((p) => p.slug === 'premium-yoga-wheel') || {
       id: 'wheel',
@@ -80,7 +100,7 @@ export default async function HomePage() {
       categorySlug: 'yoga-props',
       shortDescription: 'Support & Mobility',
       priceINR: 1649,
-      image: 'https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139075/yoglivya/products/yoga-wheel.jpg',
     },
     products.find((p) => p.slug === 'iyengar-yoga-rope') || {
       id: 'rope',
@@ -89,7 +109,7 @@ export default async function HomePage() {
       categorySlug: 'yoga-props',
       shortDescription: 'Spun Cotton',
       priceINR: 799,
-      image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139065/yoglivya/products/iyengar-yoga-rope.jpg',
     },
     products.find((p) => p.slug === 'yoga-bolster') || {
       id: 'bolster',
@@ -98,7 +118,7 @@ export default async function HomePage() {
       categorySlug: 'meditation',
       shortDescription: 'Premium Support',
       priceINR: 1299,
-      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139072/yoglivya/products/yoga-bolster.jpg',
     },
   ];
 
@@ -110,7 +130,7 @@ export default async function HomePage() {
       categorySlug: 'wellness',
       shortDescription: 'Mindful Focus',
       priceINR: 1399,
-      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139068/yoglivya/products/trataka-stand.jpg',
     },
     products.find((p) => p.slug === 'practice-journal') || {
       id: 'journal',
@@ -119,7 +139,7 @@ export default async function HomePage() {
       categorySlug: 'accessories',
       shortDescription: 'Daily Reflection',
       priceINR: 499,
-      image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139065/yoglivya/products/practice-journal.jpg',
     },
     products.find((p) => p.slug === 'premium-hammock') || {
       id: 'hammock',
@@ -128,7 +148,7 @@ export default async function HomePage() {
       categorySlug: 'yoga-props',
       shortDescription: 'Aerial Practice',
       priceINR: 2499,
-      image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139066/yoglivya/products/premium-hammock.jpg',
     },
     products.find((p) => p.slug === 'wellness-potli') || {
       id: 'potli',
@@ -137,7 +157,7 @@ export default async function HomePage() {
       categorySlug: 'wellness',
       shortDescription: 'Traditional Ritual',
       priceINR: 699,
-      image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139070/yoglivya/products/wellness-potli.jpg',
     },
   ];
 
@@ -149,7 +169,7 @@ export default async function HomePage() {
       categorySlug: 'wellness',
       shortDescription: 'Traditional Practice',
       priceINR: 299,
-      image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139067/yoglivya/products/sutra-neti.jpg',
     },
     products.find((p) => p.slug === 'yoga-rope-set') || {
       id: 'ropeset',
@@ -158,7 +178,7 @@ export default async function HomePage() {
       categorySlug: 'yoga-props',
       shortDescription: 'Spun Cotton',
       priceINR: 450,
-      image: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139073/yoglivya/products/yoga-rope-set.jpg',
     },
     products.find((p) => p.slug === 'yoga-strap') || {
       id: 'strap',
@@ -167,7 +187,7 @@ export default async function HomePage() {
       categorySlug: 'yoga-props',
       shortDescription: 'Everyday Mobility',
       priceINR: 349,
-      image: 'https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139075/yoglivya/products/yoga-strap.jpg',
     },
     products.find((p) => p.slug === 'vastra-dhauti') || {
       id: 'dhauti',
@@ -176,7 +196,7 @@ export default async function HomePage() {
       categorySlug: 'wellness',
       shortDescription: 'Traditional Wellness',
       priceINR: 599,
-      image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=85',
+      image: 'https://res.cloudinary.com/dzobobkqw/image/upload/v1793139069/yoglivya/products/vastra-dhauti.jpg',
     },
   ];
 
@@ -185,31 +205,31 @@ export default async function HomePage() {
       name: "Yoga Props",
       slug: "yoga-props",
       tagline: "Support your practice",
-      image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=600&q=85",
+      image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139079/yoglivya/categories/yoga-blocks.png",
     },
     {
       name: "Yoga Mats",
       slug: "yoga-mats",
       tagline: "Ground your practice",
-      image: "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=600&q=85",
+      image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139081/yoglivya/categories/yoga-mats.png",
     },
     {
       name: "Meditation",
       slug: "meditation",
       tagline: "Create stillness",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=85",
+      image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139072/yoglivya/products/yoga-bolster.jpg",
     },
     {
       name: "Wellness",
       slug: "wellness",
       tagline: "Everyday rituals",
-      image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=85",
+      image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139068/yoglivya/products/trataka-stand.jpg",
     },
     {
       name: "Accessories",
       slug: "accessories",
       tagline: "Practice essentials",
-      image: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&w=600&q=80",
+      image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139078/yoglivya/categories/yoga-accessories.png",
     },
   ];
 
