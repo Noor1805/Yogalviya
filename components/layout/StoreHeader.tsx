@@ -86,14 +86,13 @@ export default function StoreHeader() {
                     {/* Brand Logo */}
                     <Link
                         href="/"
-                        className="flex items-center gap-2 group transition-opacity hover:opacity-80"
+                        className="flex items-center gap-2 group transition-opacity hover:opacity-85 py-0.5"
                     >
-                        <span
-                            className="font-serif text-[24px] sm:text-[27px] tracking-[0.14em] text-[#1c211d] font-normal uppercase select-none"
-                            style={{ fontFamily: 'Georgia, serif' }}
-                        >
-                            YOGLIVYA
-                        </span>
+                        <img
+                            src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Yoglivya_White_1.png"
+                            alt="Yoglivya"
+                            className="h-11 sm:h-[50px] w-auto object-contain mix-blend-multiply"
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -282,9 +281,11 @@ export default function StoreHeader() {
                         >
                             <div>
                                 <div className="flex items-center justify-between pb-6 border-b border-[#e7e5df]">
-                                    <span className="font-serif text-[22px] tracking-[0.14em] text-[#1c211d] uppercase">
-                                        Yoglivya
-                                    </span>
+                                    <img
+                                        src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Yoglivya_White_1.png"
+                                        alt="Yoglivya"
+                                        className="h-8 w-auto object-contain mix-blend-multiply"
+                                    />
                                     <button
                                         onClick={() => setMobileOpen(false)}
                                         aria-label="Close menu"

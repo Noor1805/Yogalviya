@@ -57,7 +57,7 @@ dotenv.config({ path: envFile });
 const rawMongoUri = process.env.MONGODB_URI;
 const rawAdminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
 const rawAdminPassword = process.env.ADMIN_PASSWORD?.trim();
-const ADMIN_NAME = process.env.ADMIN_NAME?.trim() || 'Almina Couture Admin';
+const ADMIN_NAME = process.env.ADMIN_NAME?.trim() || 'Yoglivya Admin';
 
 if (!rawMongoUri) {
     throw new Error(`MONGODB_URI is missing in ${path.basename(envFile)}`);

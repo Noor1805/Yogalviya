@@ -41,7 +41,7 @@ export const quoteSchema = z.object({
     phone: z.string().min(5, 'Please enter a valid phone number'),
     country: z.string().min(2, 'Please select your country'),
     product: z.string().min(1, 'Piece name is required'),
-    brandingType: z.enum(['Almina Couture Branded', 'White Label', 'Custom Branding']).optional(),
+    brandingType: z.enum(['Yoglivya Branded', 'White Label', 'Custom Branding']).optional(),
 });
 
 export type QuoteRequest = z.infer<typeof quoteSchema>;

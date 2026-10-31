@@ -5,9 +5,9 @@ import AnimatedSection from './AnimatedSection';
 
 const team = [
     {
-        name: 'Almina Hassan',
-        role: 'Founder & Creative Director',
-        bio: 'With over 15 years of experience in luxury fashion, Almina brings her unique vision and passion for craftsmanship to every collection.',
+        name: 'Aarohi Patel',
+        role: 'Founder & Holistic Director',
+        bio: 'With over 15 years of immersion in yogic traditions and natural textiles, Aarohi brings her mindful vision to every Yoglivya piece.',
         image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80',
     },
     {

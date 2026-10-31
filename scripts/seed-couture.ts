@@ -82,7 +82,7 @@ const SEED_PRODUCTS = [
 ];
 
 async function seed() {
-  console.log('🌱 Starting Almina Couture Seed...');
+  console.log('🌱 Starting Legacy Couture Seed...');
   
   await mongoose.connect(MONGODB_URI);
   console.log('✅ Connected to MongoDB');
@@ -116,7 +116,7 @@ async function seed() {
     });
   }
 
-  console.log('🎉 Almina Couture Seed Complete!');
+  console.log('🎉 Legacy Couture Seed Complete!');
   process.exit(0);
 }
 

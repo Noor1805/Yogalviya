@@ -69,15 +69,14 @@ export default function Footer() {
                     
                     {/* Brand Column */}
                     <div className="pr-4">
-                        <Link href="/" className="inline-block group">
-                            <h3 
-                                className="text-[25px] tracking-[0.14em] uppercase text-white font-normal"
-                                style={{ fontFamily: 'Georgia, serif' }}
-                            >
-                                YOGLIVYA
-                            </h3>
+                        <Link href="/" className="inline-block group mb-2">
+                            <img
+                                src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Screenshot_2026-10-27_at_10.37.15_PM.png"
+                                alt="Yoglivya — The Path to Enlightenment"
+                                className="h-14 sm:h-[62px] w-auto object-contain filter invert mix-blend-screen -ml-1"
+                            />
                         </Link>
-                        <p className="mt-3.5 text-[11.5px] leading-[1.8] text-[#c4c9c1] max-w-[280px]">
+                        <p className="mt-2.5 text-[11.5px] leading-[1.8] text-[#c4c9c1] max-w-[280px]">
                             Premium yoga props and wellness essentials designed for a considered daily practice.
                         </p>
                         <div className="mt-5 flex items-center gap-3 text-[11px] text-[#a08758] tracking-widest uppercase font-semibold">

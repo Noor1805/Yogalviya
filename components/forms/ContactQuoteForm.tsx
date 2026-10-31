@@ -19,7 +19,7 @@ export default function ContactQuoteForm() {
     } = useForm<QuoteRequest>({
         resolver: zodResolver(quoteSchema),
         defaultValues: {
-            product: 'couture',
+            product: 'yoga-props',
             country: 'Not Specified', // Default value to pass validation
         },
     });
@@ -94,9 +94,9 @@ export default function ContactQuoteForm() {
                   Interested in
                 </label>
                 <select {...register('product')} className="appearance-none bg-transparent border-none focus:ring-0 p-0 text-[13px] text-black w-full cursor-pointer pr-8 outline-none font-medium">
-                  <option value="couture">Couture Enquiries</option>
-                  <option value="bridal">Bridal Bookings</option>
-                  <option value="collaboration">Collaborations</option>
+                  <option value="yoga-props">Yoga Props & Mats</option>
+                  <option value="studio-orders">Studio Wholesale Orders</option>
+                  <option value="collaboration">Collaborations & Partnerships</option>
                 </select>
                 <ChevronDown className="absolute right-0 bottom-2 w-4 h-4 text-black pointer-events-none" />
                 {errors.product && <p className="text-xs text-red-500 mt-1">{errors.product.message}</p>}

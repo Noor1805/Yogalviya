@@ -75,7 +75,7 @@ export default function ReviewSection() {
           className="text-center text-black leading-tight px-6"
           style={{ fontSize: 'clamp(40px, 6vw, 80px)', fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: 400 }}
         >
-          What our Clients<br />are saying about Almina Couture
+          What our Practitioners<br />are saying about Yoglivya
         </h2>
       </div>
 

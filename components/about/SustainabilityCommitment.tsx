@@ -106,7 +106,7 @@ export default function SustainabilityCommitment() {
                     <div className="p-12 sm:p-16 border border-[#C5A572]/30 bg-black text-center">
                         <span className="text-[#C5A572] font-serif italic text-2xl sm:text-3xl">Our Pledge</span>
                         <p className="mt-6 text-white/70 font-light leading-relaxed text-base sm:text-lg max-w-3xl mx-auto">
-                            By 2025, Almina Couture commits to achieving 100% sustainable sourcing, zero waste to landfill, and carbon neutrality across our entire supply chain. We believe that true luxury respects both people and planet.
+                            By 2026, Yoglivya commits to achieving 100% sustainable sourcing, zero waste to landfill, and carbon neutrality across our entire supply chain. We believe that true wellness respects both people and planet.
                         </p>
                         <div className="mt-8 flex justify-center gap-4">
                             <span className="text-[#C5A572] text-2xl">✦</span>

@@ -6,36 +6,36 @@ import AnimatedSection from './AnimatedSection';
 
 const testimonials = [
     {
-        quote: "Almina Couture has redefined what luxury means to me. The attention to detail and quality of craftsmanship is unparalleled.",
+        quote: "Yoglivya has redefined what intentional practice means to me. The attention to detail and quality of craftsmanship is unparalleled.",
         author: "Sarah Mitchell",
-        role: "Fashion Editor, Vogue",
+        role: "Yoga Practitioner & Wellness Editor",
         logo: "Vogue",
     },
     {
-        quote: "Every piece I've owned from Almina Couture has become a timeless staple in my wardrobe. The quality is exceptional.",
+        quote: "Every prop I've owned from Yoglivya has become a timeless staple in my daily sadhana. The grip and support are exceptional.",
         author: "Elena Rodriguez",
-        role: "Style Consultant",
+        role: "Movement Guide",
         logo: "Elle",
     },
     {
-        quote: "The level of personalization and care that goes into each garment is remarkable. This is luxury fashion at its finest.",
+        quote: "The level of organic consideration and care that goes into each prop is remarkable. This is mindful living at its finest.",
         author: "James Chen",
-        role: "Luxury Lifestyle Blogger",
+        role: "Mindful Lifestyle Blogger",
         logo: "GQ",
     },
 ];
 
 const pressQuotes = [
     {
-        quote: "Almina Couture represents the future of luxury fashion — sustainable, ethical, and absolutely beautiful.",
+        quote: "Yoglivya represents the future of mindful living — sustainable, non-toxic, and thoughtfully crafted.",
         publication: "Vogue India",
     },
     {
-        quote: "A masterclass in craftsmanship and design. Almina Couture is setting new standards in the luxury fashion industry.",
+        quote: "A masterclass in organic craft and ergonomic support. Yoglivya is setting new standards in conscious yoga lifestyle.",
         publication: "Harper's Bazaar",
     },
     {
-        quote: "The perfect blend of tradition and innovation. Almina Couture is a brand to watch.",
+        quote: "The perfect blend of tradition and timeless simplicity. Yoglivya is an authentic wellness brand to celebrate.",
         publication: "Elle Decor",
     },
 ];

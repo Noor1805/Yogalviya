@@ -11,7 +11,7 @@ const normalized = normalizeProductDocumentForClient({
   additionalInfo: [
     {
       label: ' Brand ',
-      value: ' Almina ',
+      value: ' Yoglivya ',
       _id: objectIdLike,
     },
   ],
@@ -60,7 +60,7 @@ const normalized = normalizeProductDocumentForClient({
 });
 
 assert.deepEqual(normalized.additionalInfo, [
-  { label: 'Brand', value: 'Almina' },
+  { label: 'Brand', value: 'Yoglivya' },
 ]);
 
 assert.deepEqual(normalized.specifications, [

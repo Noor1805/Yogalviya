@@ -81,7 +81,7 @@ const buildLineItemRow = (item: ILineItem, currency: string) => `
           ${
             item.image
               ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" width="76" height="92" style="display:block; width:76px; height:92px; object-fit:cover; border-radius:18px; background:#f2ede6;" />`
-              : `<div style="width:76px; height:92px; border-radius:18px; background:#f2ede6; color:#85796d; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; text-align:center; line-height:92px;">Almina</div>`
+              : `<div style="width:76px; height:92px; border-radius:18px; background:#f2ede6; color:#85796d; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; text-align:center; line-height:92px;">Yoglivya</div>`
           }
         </td>
         <td class="invoice-item-copy" style="padding: 18px; vertical-align: middle;">
@@ -136,7 +136,7 @@ export const buildInvoiceHtmlDocument = (order: InvoiceOrder) => {
     <div class="invoice-shell" style="max-width:860px; margin:0 auto; padding:40px 20px;">
       <div style="background:#ffffff; border:1px solid #e9dfd3; border-radius:28px; overflow:hidden; box-shadow:0 20px 60px rgba(34, 26, 17, 0.08);">
         <div style="padding:32px 36px; background:#161514; color:#f7f2eb;">
-          <div style="font-size:12px; letter-spacing:0.35em; text-transform:uppercase; opacity:0.7;">Almina</div>
+          <div style="font-size:12px; letter-spacing:0.35em; text-transform:uppercase; opacity:0.7;">Yoglivya</div>
           <div style="margin-top:14px; font-size:34px; font-weight:700; letter-spacing:-0.04em;">Invoice Slip</div>
           <div style="margin-top:10px; max-width:420px; font-size:15px; line-height:1.7; opacity:0.85;">
             Order ${escapeHtml(order.orderNumber)} for ${escapeHtml(order.customerName)}.

@@ -181,8 +181,8 @@ export function aboutPageSchema() {
     return {
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
-        name: `About ${SITE_NAME} - Luxury Fashion & Couture`,
-        description: `Learn about ${SITE_NAME}'s heritage, our commitment to artisanal craftsmanship, and our exquisite collection of premium luxury apparel.`,
+        name: `About ${SITE_NAME} - Mindful Yoga & Wellness Essentials`,
+        description: `Learn about ${SITE_NAME}'s philosophy, our commitment to mindful practice, and our collection of authentic yoga props and wellness essentials.`,
         url: `${SITE_URL}/about`,
         mainEntity: organizationSchema(),
     };

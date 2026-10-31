@@ -86,7 +86,7 @@ export default function OurStory() {
                         <div className="relative aspect-[4/5] overflow-hidden">
                             <Image
                                 src="https://images.unsplash.com/photo-1537832816515-883919ab027e?w=800&q=80"
-                                alt="Almina Couture vision"
+                                alt="Yoglivya vision"
                                 fill
                                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                             />

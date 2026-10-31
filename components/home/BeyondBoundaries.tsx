@@ -28,7 +28,7 @@ export default function BeyondBoundaries() {
         {/* Footer Branding Detail */}
         <div className="mt-24 pt-12 border-t border-gray-100 flex flex-col items-center">
              <div className="text-center">
-                <h3 className="text-[18px] font-black uppercase tracking-[0.4em] text-black mb-1">ALMINA</h3>
+                <h3 className="text-[18px] font-black uppercase tracking-[0.4em] text-black mb-1">YOGLIVYA</h3>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Believe</p>
              </div>
         </div>

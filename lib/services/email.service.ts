@@ -7,7 +7,7 @@ import { getCustomerInvoiceUrl, getCustomerOrderUrl } from '@/lib/utils/invoice'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_fallback');
 const SENDER_EMAIL = process.env.SENDER_EMAIL || 'orders@yourdomain.com';
-const SENDER_NAME = process.env.SENDER_NAME?.trim() || 'ALMINA';
+const SENDER_NAME = process.env.SENDER_NAME?.trim() || 'YOGLIVYA';
 const FROM_EMAIL = `${SENDER_NAME} <${SENDER_EMAIL}>`;
 const TEST_RECIPIENT = process.env.RESEND_TEST_EMAIL_TO?.trim();
 
@@ -147,7 +147,7 @@ export class EmailService {
                                                         ${
                                                             item.image
                                                                 ? `<img src="${this.escapeHtml(item.image)}" alt="${this.escapeHtml(item.name)}" width="74" height="92" style="display:block; width:74px; height:92px; object-fit:cover; border-radius:18px; background:#f2ede6;" />`
-                                                                : `<div style="width:74px; height:92px; border-radius:18px; background:#f2ede6; color:#85796d; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; text-align:center; line-height:92px;">Almina</div>`
+                                                                : `<div style="width:74px; height:92px; border-radius:18px; background:#f2ede6; color:#85796d; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; text-align:center; line-height:92px;">Yoglivya</div>`
                                                         }
                                                     </td>
                                                     <td class="mobile-stack" style="padding: 18px; vertical-align: middle;">
@@ -232,8 +232,8 @@ export class EmailService {
                                             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="font-size: 13px; letter-spacing: 0.38em; text-transform: uppercase; color: #181512; font-weight: 700;">ALMINA</td>
-                                                        <td align="right" style="font-size: 12px; color: #6f655b;">${headerTagline || 'Luxury order updates, beautifully delivered.'}</td>
+                                                        <td style="font-size: 13px; letter-spacing: 0.38em; text-transform: uppercase; color: #181512; font-weight: 700;">YOGLIVYA</td>
+                                                        <td align="right" style="font-size: 12px; color: #6f655b;">${headerTagline || 'Mindful yoga essentials, thoughtfully delivered.'}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -554,11 +554,11 @@ export class EmailService {
                 subject: 'Welcome to our Store, {{customerName}}!',
                 description: 'Variables: customerName, loginUrl',
                 bodyHtml: this.buildEmailShell({
-                    preheader: 'Your Almina account is ready.',
+                    preheader: 'Your Yoglivya account is ready.',
                     eyebrow: 'Welcome',
                     title: 'Your account is ready.',
                     lead: 'You can now manage orders, track deliveries, access invoices, and submit post-delivery support requests from one place.',
-                    headerTagline: 'Welcome to your Almina account.',
+                    headerTagline: 'Welcome to your Yoglivya account.',
                     bodyHtml: `
                         <div style="padding: 20px; border-radius: 22px; background: #f4ede4; font-size: 15px; line-height: 1.8; color: #5d5348;">
                             <strong style="color:#181512;">{{customerName}}</strong>, your profile has been created successfully. This first-touch email is now designed to feel as premium as the storefront.

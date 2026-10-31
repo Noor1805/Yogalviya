@@ -89,14 +89,13 @@ export default function Header() {
           {/* CENTER — Brand Name */}
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 hover:opacity-70 transition-opacity duration-200"
+            className="absolute left-1/2 -translate-x-1/2 hover:opacity-85 transition-opacity duration-200"
           >
-            <span
-              className="text-white uppercase tracking-[0.35em] font-light select-none"
-              style={{ fontSize: 'clamp(13px, 1.6vw, 17px)', fontFamily: 'Georgia, serif', letterSpacing: '0.35em' }}
-            >
-              Almina Couture
-            </span>
+            <img
+              src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Yoglivya_White_1.png"
+              alt="Yoglivya"
+              className="h-9 sm:h-10 w-auto object-contain filter invert mix-blend-screen"
+            />
           </Link>
 
           {/* RIGHT — Icons + Menu */}

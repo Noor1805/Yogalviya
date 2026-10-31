@@ -25,7 +25,7 @@ export default function JewelrySection() {
         >
            <Image 
              src="/images/women.jpg" 
-             alt="Almina Jewelry Model" 
+             alt="Yoglivya Model" 
              fill 
              className="object-cover object-top grayscale" 
              sizes="280px"
@@ -44,7 +44,7 @@ export default function JewelrySection() {
              className="font-black uppercase text-white leading-[0.7] select-none" 
              style={{ fontSize: 'clamp(80px, 9vw, 130px)', letterSpacing: '-0.04em' }}
           >
-             ALMINA
+             YOGLIVYA
           </h2>
           <h2 
              className="font-black uppercase text-white leading-[0.7] select-none ml-[1.8em]" 
@@ -88,7 +88,7 @@ export default function JewelrySection() {
         {/* 6. Bottom Left Description & Button */}
         <div className="absolute left-[2%] bottom-[0%] z-[50] flex flex-col gap-8 max-w-[280px]">
            <p className="text-[11px] text-gray-400 font-medium leading-[1.8] italic" style={{ fontFamily: 'Georgia, serif' }}>
-             Almina Jewelry! Discover a stunning collection of elegant and unique pieces that will capture your heart
+             Yoglivya Collection! Discover a stunning collection of mindful and unique essentials that will elevate your practice
            </p>
            <button 
              className="bg-black text-white text-[10px] font-black uppercase tracking-[0.25em] px-8 py-3.5 w-fit hover:bg-gray-800 transition-all active:scale-95"

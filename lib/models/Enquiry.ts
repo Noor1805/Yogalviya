@@ -11,7 +11,7 @@ export interface IEnquiry extends Document {
     targetCountry?: string;
     message?: string;
     type: 'enquiry' | 'contact' | 'callback';
-    brandingType?: 'Plain' | 'Almina Couture Branded' | 'Custom Branding';
+    brandingType?: 'Plain' | 'Yoglivya Branded' | 'Custom Branding';
     createdAt: Date;
 }
 
@@ -29,7 +29,7 @@ const EnquirySchema = new Schema<IEnquiry>(
         type: { type: String, enum: ['enquiry', 'contact', 'callback'], default: 'enquiry' },
         brandingType: {
             type: String,
-            enum: ['Plain', 'Almina Couture Branded', 'Custom Branding', 'White Label'],
+            enum: ['Plain', 'Yoglivya Branded', 'Custom Branding', 'White Label'],
             required: false
         }
     },

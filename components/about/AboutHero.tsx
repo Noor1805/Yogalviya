@@ -24,7 +24,7 @@ export default function AboutHero() {
             <motion.div style={{ y, opacity }} className="absolute inset-0">
                 <Image
                     src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80"
-                    alt="Almina Couture Atelier"
+                    alt="Yoglivya Atelier"
                     fill
                     className="object-cover opacity-70"
                     priority
