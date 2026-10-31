@@ -1249,12 +1249,14 @@ export default function ProductEditor({
                                             </div>
                                         )}
 
-                                        {/* SIZE Section - Compact list */}
-                                        {form.attributes.length >= 2 && form.attributes[1].name.toLowerCase().includes('size') && (
+                                        {/* VARIATIONS Section - Compact list for size, material, or sub-variations */}
+                                        {(!form.attributes[0]?.name.toLowerCase().includes('color') || form.attributes.length >= 2) && (
                                             <div>
                                                 <div className="mb-4 px-4 py-2 bg-neutral-100 rounded-lg inline-block">
                                                     <h3 className="text-[18px] font-bold text-neutral-900 uppercase tracking-tight">
-                                                        {form.attributes[1].name}
+                                                        {form.attributes[0]?.name.toLowerCase().includes('color') && form.attributes[1]
+                                                            ? form.attributes[1].name
+                                                            : (form.attributes.map((a) => a.name).join(' / ') || 'Variations')}
                                                     </h3>
                                                 </div>
                                                 
