@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { z } from 'zod';
 import dbConnect from '@/lib/db';
 import Coupon from '@/lib/models/Coupon';
@@ -65,18 +66,40 @@ export async function buildCheckoutPricing(input: CheckoutPayload) {
   await dbConnect();
 
   const uniqueProductIds = [...new Set(input.lineItems.map((item) => item.productId))];
-  const products = await Product.find({
-    _id: { $in: uniqueProductIds },
-    isDeleted: { $ne: true },
-    status: 'published',
-  })
-    .select('name productType price sku stockCount mainImage variations categorySlug')
+  const validObjectIds = uniqueProductIds.filter((id) => mongoose.Types.ObjectId.isValid(id));
+  const otherIds = uniqueProductIds.filter((id) => !mongoose.Types.ObjectId.isValid(id));
+
+  const orQueries: Record<string, unknown>[] = [];
+  if (validObjectIds.length > 0) {
+    orQueries.push({ _id: { $in: validObjectIds } });
+  }
+  if (otherIds.length > 0) {
+    orQueries.push({ slug: { $in: otherIds } });
+    orQueries.push({ sku: { $in: otherIds.map((s) => s.toUpperCase()) } });
+  }
+
+  const query =
+    orQueries.length > 1
+      ? { $or: orQueries, isDeleted: { $ne: true }, status: 'published' }
+      : orQueries.length === 1
+      ? { ...orQueries[0], isDeleted: { $ne: true }, status: 'published' }
+      : { _id: { $in: uniqueProductIds }, isDeleted: { $ne: true }, status: 'published' };
+
+  const products = await Product.find(query)
+    .select('name slug productType price sku stockCount mainImage variations categorySlug')
     .lean();
 
-  const productsById = new Map(products.map((product) => [String(product._id), product]));
+  const productsById = new Map<string, (typeof products)[0]>();
+  for (const product of products) {
+    productsById.set(String(product._id), product);
+    if (product.slug) productsById.set(product.slug, product);
+    if (product.sku) productsById.set(product.sku.toUpperCase(), product);
+  }
 
   const canonicalLineItems = input.lineItems.map((item) => {
-    const product = productsById.get(item.productId);
+    const product =
+      productsById.get(item.productId) ||
+      (item.sku ? productsById.get(item.sku.toUpperCase()) : undefined);
     if (!product) {
       throw new CheckoutValidationError('One or more products are unavailable.');
     }
@@ -91,7 +114,7 @@ export async function buildCheckoutPricing(input: CheckoutPayload) {
       }
 
       return {
-        productId: item.productId,
+        productId: String(product._id),
         sku: variation.sku,
         name: product.name,
         quantity: item.quantity,
@@ -105,7 +128,11 @@ export async function buildCheckoutPricing(input: CheckoutPayload) {
       };
     }
 
-    if (product.sku && product.sku !== item.sku) {
+    if (
+      product.sku &&
+      item.sku &&
+      product.sku.toUpperCase() !== item.sku.toUpperCase()
+    ) {
       throw new CheckoutValidationError(`Product ${product.name} no longer matches your cart.`);
     }
 
@@ -114,8 +141,8 @@ export async function buildCheckoutPricing(input: CheckoutPayload) {
     }
 
     return {
-      productId: item.productId,
-      sku: product.sku,
+      productId: String(product._id),
+      sku: product.sku || item.sku,
       name: product.name,
       quantity: item.quantity,
       priceAtPurchase: toMinorUnits(product.price || 0),

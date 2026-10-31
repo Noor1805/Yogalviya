@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import dbConnect from '@/lib/db';
 import Order, { type IOrder, type OrderStatus } from '@/lib/models/Order';
+import Coupon from '@/lib/models/Coupon';
 import { ProductService } from './product.service';
 import { PaymentService } from './payment.service';
 import { EmailService } from './email.service';
@@ -152,6 +153,26 @@ export class OrderService {
     });
 
     void eventBus.emit('order.created', order);
+
+    if (input.paymentGateway === 'cod') {
+      for (const item of order.lineItems) {
+        const success = await ProductService.decrementStock(
+          item.productId,
+          item.sku,
+          item.quantity
+        );
+        if (!success) {
+          console.error(`[OrderService] Stock decrement failed for item: ${item.name} (${item.sku})`);
+        }
+      }
+    }
+
+    if (input.couponCode) {
+      await Coupon.updateOne(
+        { code: input.couponCode.toUpperCase() },
+        { $inc: { usedCount: 1 } }
+      );
+    }
 
     return order;
   }

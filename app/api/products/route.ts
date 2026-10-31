@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
         if (ids) {
             const idArray = ids.split(',').filter(id => id.trim());
             const products = await Product.find({ _id: { $in: idArray } })
-                .select('name slug categorySlug images')
+                .select('name slug category categorySlug price priceINR priceUSD mainImage images heroImage shortDescription badge inStock stockCount sku')
                 .lean();
 
             return NextResponse.json({ products });
@@ -24,14 +24,35 @@ export async function GET(request: NextRequest) {
         // If slug is provided, fetch product by slug
         if (slug) {
             const products = await Product.find({ slug })
-                .select('name slug categorySlug images')
+                .select('name slug category categorySlug price priceINR priceUSD mainImage images heroImage shortDescription badge inStock stockCount sku')
                 .lean();
 
             return NextResponse.json({ products });
         }
 
-        // Otherwise, return empty or handle other query params
-        return NextResponse.json({ products: [] });
+        // If category is provided
+        const category = searchParams.get('category');
+        if (category) {
+            const products = await Product.find({
+                categorySlug: category,
+                isDeleted: { $ne: true },
+                status: 'published',
+            })
+                .select('name slug category categorySlug price priceINR priceUSD mainImage images heroImage shortDescription badge inStock stockCount featured')
+                .lean();
+
+            return NextResponse.json({ products });
+        }
+
+        // Return all published products
+        const products = await Product.find({
+            isDeleted: { $ne: true },
+            status: 'published',
+        })
+            .select('name slug category categorySlug price priceINR priceUSD mainImage images heroImage shortDescription badge inStock stockCount featured')
+            .lean();
+
+        return NextResponse.json({ products });
     } catch (error) {
         console.error('Error fetching products:', error);
         return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });

@@ -54,6 +54,10 @@ const staticCategories = [
 import Admin from './models/Admin';
 import Category from './models/Category';
 import Product from './models/Product';
+import Coupon from './models/Coupon';
+import Attribute from './models/Attribute';
+import SearchSettings from './models/SearchSettings';
+import Review from './models/Review';
 import { EmailService } from './services/email.service';
 
 async function seed() {
@@ -328,8 +332,9 @@ async function seed() {
     
     console.log(`📦 Seeding ${allProducts.length} new Yoglivya products from resource...`);
 
+    const createdProducts = [];
     for (const product of allProducts) {
-        await Product.create({
+        const created = await Product.create({
             name: product.name,
             slug: product.slug,
             productType: 'simple',
@@ -360,7 +365,171 @@ async function seed() {
             images: [product.heroImage],
             inStock: product.inStock,
         });
+        createdProducts.push(created);
         console.log(`   ✅ Created: ${product.name} (₹${product.priceINR})`);
+    }
+
+    // ── 4. Seed Coupons ──
+    console.log('\n🎟️ Seeding promotional coupons...');
+    await Coupon.deleteMany({});
+    const couponsToSeed = [
+        {
+            code: 'YOG10',
+            description: 'Flat 10% off on all yoga essentials',
+            discountType: 'percentage',
+            discountValue: 10,
+            minOrderAmount: 0,
+            startDate: new Date('2024-01-01'),
+            endDate: new Date('2030-12-31'),
+            isActive: true,
+        },
+        {
+            code: 'WELCOME10',
+            description: 'Welcome 10% discount on your first order',
+            discountType: 'percentage',
+            discountValue: 10,
+            minOrderAmount: 0,
+            startDate: new Date('2024-01-01'),
+            endDate: new Date('2030-12-31'),
+            isActive: true,
+        },
+        {
+            code: 'YOGA20',
+            description: '20% off on orders above ₹2,000',
+            discountType: 'percentage',
+            discountValue: 20,
+            minOrderAmount: 2000,
+            startDate: new Date('2024-01-01'),
+            endDate: new Date('2030-12-31'),
+            isActive: true,
+        },
+    ];
+    for (const coup of couponsToSeed) {
+        await Coupon.create(coup);
+        console.log(`   ✅ Coupon created: ${coup.code} (${coup.discountValue}% off)`);
+    }
+
+    // ── 5. Seed Attributes ──
+    console.log('\n🏷️ Seeding yoga attributes...');
+    await Attribute.deleteMany({});
+    const attributesToSeed = [
+        {
+            name: 'Material',
+            slug: 'material',
+            type: 'select',
+            values: ['100% Organic Cotton', 'Natural Cork', 'Natural Tree Rubber', 'Solid Brass', 'Pure Beeswax', 'Linen & Buckwheat'],
+            order: 1,
+            isActive: true,
+        },
+        {
+            name: 'Size',
+            slug: 'size',
+            type: 'size',
+            values: ['Standard', '6 FT', '8 FT', '10 FT', '5mm'],
+            order: 2,
+            isActive: true,
+        },
+        {
+            name: 'Color',
+            slug: 'color',
+            type: 'color',
+            values: ['Natural Raw', 'Army Green', 'Earth Brown', 'Sage', 'Terracotta'],
+            colorValues: {
+                'Natural Raw': '#F5F5DC',
+                'Army Green': '#4B5320',
+                'Earth Brown': '#8B4513',
+                'Sage': '#9DC183',
+                'Terracotta': '#E2725B',
+            },
+            order: 3,
+            isActive: true,
+        },
+    ];
+    for (const attr of attributesToSeed) {
+        await Attribute.create(attr);
+        console.log(`   ✅ Attribute created: ${attr.name}`);
+    }
+
+    // ── 6. Seed Search Settings ──
+    console.log('\n🔍 Seeding search settings...');
+    await SearchSettings.deleteMany({});
+    await SearchSettings.create({
+        categories: staticCategories.map((c) => ({
+            name: c.name,
+            slug: c.slug,
+            enabled: true,
+        })),
+        trendingSearches: ['yoga belt', 'yoga mat', 'bolster', 'wall ropes', 'yoga wheel', 'cork mat', 'meditation'],
+        featuredProductIds: createdProducts.filter((p) => p.featured).map((p) => String(p._id)),
+    });
+    console.log('   ✅ Search settings initialized');
+
+    // ── 7. Seed Reviews ──
+    console.log('\n⭐ Seeding verified customer reviews...');
+    await Review.deleteMany({});
+    const sampleReviews = [
+        {
+            slug: 'premium-cotton-yoga-belt',
+            customerName: 'Priya Sharma',
+            customerEmail: 'priya.sharma@example.com',
+            rating: 5,
+            title: 'Exceptional grip and sturdy buckle',
+            comment: 'The unbleached organic cotton feels incredible in the hands. The D-ring is thick solid steel and holds the grip during intense stretches.',
+        },
+        {
+            slug: 'iyengar-yoga-rope',
+            customerName: 'Arjun Mehta',
+            customerEmail: 'arjun.mehta@example.com',
+            rating: 5,
+            title: 'Authentic Iyengar wall ropes',
+            comment: 'Authentic studio quality. Soft spun cotton rope with reinforced stitching that gives complete trust when hanging upside down.',
+        },
+        {
+            slug: 'premium-yoga-wheel',
+            customerName: 'Ananya Deshmukh',
+            customerEmail: 'ananya.d@example.com',
+            rating: 5,
+            title: 'Great for back bends and spinal release',
+            comment: 'The cork outer layer is non-slip and gentle against the spine. Very strong core, supports weight without bending.',
+        },
+        {
+            slug: 'yoga-bolster',
+            customerName: 'Rohit Verma',
+            customerEmail: 'rohit.v@example.com',
+            rating: 5,
+            title: 'Perfect restorative firmness',
+            comment: 'Buckwheat hulls offer firm yet contouring support for restorative yoga. The washable linen cover is a great plus.',
+        },
+        {
+            slug: 'prana-grip-non-slip-pu-yoga-mat',
+            customerName: 'Sunita Rao',
+            customerEmail: 'sunita.rao@example.com',
+            rating: 5,
+            title: 'Incredible grip even during hot yoga',
+            comment: 'Zero slippage even when sweating. The alignment lines helped me correct my warrior pose angles. Worth every rupee.',
+        },
+    ];
+
+    for (const rev of sampleReviews) {
+        const prod = createdProducts.find((p) => p.slug === rev.slug);
+        if (prod) {
+            await Review.create({
+                productId: String(prod._id),
+                productSlug: prod.slug,
+                productName: prod.name,
+                customerName: rev.customerName,
+                customerEmail: rev.customerEmail,
+                orderId: 'ORD-INITIAL-SEED',
+                orderNumber: 'ORD-SEED-101',
+                rating: rev.rating,
+                title: rev.title,
+                comment: rev.comment,
+                photos: [],
+                verifiedPurchase: true,
+                status: 'published',
+            });
+            console.log(`   ✅ Review created for ${prod.name}`);
+        }
     }
 
     console.log('\n🎉 Resource Seed complete!');
