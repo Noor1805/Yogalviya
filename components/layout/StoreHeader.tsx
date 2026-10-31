@@ -76,7 +76,7 @@ export default function StoreHeader() {
         <>
             {/* Top Announcement Bar from Resource */}
             <div className="bg-[#26352b] text-white text-center py-2 px-4 text-[10px] sm:text-[11px] tracking-[0.13em] uppercase font-medium z-50 relative select-none">
-                PAN-INDIA DELIVERY · COD AVAILABLE · PREMIUM YOGA & WELLNESS
+                YOGA &amp; MEDITATION ESSENTIALS • EXPLORE THE COLLECTION
             </div>
 
             {/* Main Sticky Header */}
@@ -337,7 +337,7 @@ export default function StoreHeader() {
                                     </div>
                                 )}
                                 <p className="text-[10px] text-center text-[#77766f] uppercase tracking-wider">
-                                    Living the Yogic Way
+                                    The Path To Enlightenment
                                 </p>
                             </div>
                         </motion.div>

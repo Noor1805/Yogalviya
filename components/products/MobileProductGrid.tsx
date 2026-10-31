@@ -215,8 +215,14 @@ export default function MobileProductGrid({ products, layout }: MobileProductGri
                         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                     </svg>
                 </div>
-                <h3 className="text-[16px] font-bold text-gray-900 mb-2">No products found</h3>
-                <p className="text-[13px] text-gray-400 leading-relaxed">Try adjusting your filters or search terms to find what you're looking for.</p>
+                <h3 className="text-[16px] font-bold text-gray-900 mb-2">No products match these filters.</h3>
+                <p className="text-[13px] text-gray-400 leading-relaxed mb-4">Try removing a filter or explore the full collection.</p>
+                <Link
+                    href="/products"
+                    className="inline-block px-5 py-2.5 bg-[#26352b] text-white text-[10px] font-medium tracking-[0.12em] uppercase rounded"
+                >
+                    View All Essentials
+                </Link>
             </div>
         );
     }

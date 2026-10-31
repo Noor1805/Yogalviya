@@ -30,10 +30,17 @@ export function buildMetadata({
     ],
 }: BuildMetadataOptions): Metadata {
     const url = `${SITE_URL}${path}`;
-    const fullTitle = path === '/' ? `${SITE_NAME} — Mindful Yoga & Wellness Essentials` : `${title} | ${SITE_NAME}`;
+    const hasSiteName = title.toLowerCase().includes(SITE_NAME.toLowerCase());
+    const fullTitle = path === '/'
+        ? `Yoga & Meditation Essentials | ${SITE_NAME}`
+        : hasSiteName
+        ? title
+        : `${title} | ${SITE_NAME}`;
 
     return {
-        title: fullTitle,
+        title: {
+            absolute: fullTitle,
+        },
         description,
         keywords,
         robots: noIndex ? { index: false, follow: false } : {
@@ -90,7 +97,7 @@ export function organizationSchema() {
         name: SITE_NAME,
         url: SITE_URL,
         logo: `${SITE_URL}/images/logo.png`,
-        description: 'Premium mindful yoga essentials, eco-friendly mats, ergonomic props, and activewear crafted for holistic wellness.',
+        description: 'Yoga and meditation essentials for movement, stillness and the practice you make your own.',
         address: {
             '@type': 'PostalAddress',
             addressCountry: 'IN',
@@ -181,8 +188,8 @@ export function aboutPageSchema() {
     return {
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
-        name: `About ${SITE_NAME} - Mindful Yoga & Wellness Essentials`,
-        description: `Learn about ${SITE_NAME}'s philosophy, our commitment to mindful practice, and our collection of authentic yoga props and wellness essentials.`,
+        name: `About ${SITE_NAME} | The Path To Enlightenment`,
+        description: `Discover ${SITE_NAME}’s approach to yoga, meditation and self-inquiry, inspired by India’s living yoga heritage and shaped around personal practice.`,
         url: `${SITE_URL}/about`,
         mainEntity: organizationSchema(),
     };

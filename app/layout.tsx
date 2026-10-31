@@ -47,18 +47,17 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Yoglivya — Mindful Yoga & Wellness Essentials',
+    default: 'Yoga & Meditation Essentials | Yoglivya',
     template: '%s | Yoglivya',
   },
   description:
-    'Discover mindful yoga mats, organic cork blocks, meditation bolsters, and breathable activewear handcrafted for your conscious wellness journey. Worldwide shipping available.',
+    'Explore Yoglivya yoga mats, props and meditation essentials for movement, stillness and everyday practice. Find what suits your routine.',
   keywords: [
     'yoga mats',
-    'eco friendly yoga mat',
-    'cork yoga blocks',
-    'meditation cushions and bolsters',
-    'mindful activewear',
-    'yoga accessories India'
+    'yoga props',
+    'meditation essentials',
+    'yoga belts and ropes',
+    'mindful practice India'
   ],
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   alternates: {

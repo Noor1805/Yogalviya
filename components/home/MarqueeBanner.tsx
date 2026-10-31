@@ -1,9 +1,9 @@
-const messages = ['Mindful movement', 'Made for your practice', 'Thoughtful essentials', 'Live the Yogic Way'];
+const messages = ['Movement with intention', 'Space for stillness', 'Essentials for your practice', 'Your own way to begin'];
 
 export default function MarqueeBanner() {
     return (
         <div
-            aria-label="Mindful movement. Thoughtful yoga essentials. Live the Yogic Way."
+            aria-label="Movement with intention. Space for stillness. Essentials for your practice. Your own way to begin."
             className="overflow-hidden border-y border-[#d7c5a7]/20 bg-[#26352b] py-4 text-[#f5f3ed] sm:py-5"
         >
             <div className="home-marquee-track flex w-max items-center" aria-hidden="true">

@@ -9,40 +9,40 @@ import Product from "@/lib/models/Product";
 import Category from "@/lib/models/Category";
 
 export const metadata = buildMetadata({
-  title: "Yoglivya — Premium Yoga & Wellness Essentials",
+  title: "Yoga & Meditation Essentials",
   description:
-    "Premium yoga props, non-slip mats, buckwheat bolsters and wellness essentials designed to bring greater support, alignment and intention to your daily practice.",
+    "Explore Yoglivya yoga mats, props and meditation essentials for movement, stillness and everyday practice. Find what suits your routine.",
   path: "/",
   keywords: [
     "yoga props",
     "yoga mats",
-    "meditation bolsters",
-    "cotton yoga belts",
-    "cork yoga wheels",
-    "mindful wellness India",
+    "meditation essentials",
+    "yoga belts",
+    "yoga blocks",
+    "mindful practice India",
   ],
 });
 
 const homeFaqs = [
   {
-    question: "How do I choose the right yoga belt length?",
+    question: "How do I choose a product for my practice?",
     answer:
-      "A 6 FT or 8 FT belt is ideal for standard studio stretching and forward bends. For taller practitioners or deeper binding postures, our 10 FT belt provides extra reach and loop flexibility.",
+      "Start with what you need it for, then compare the dimensions, materials and intended use on the product page. If a detail is unclear, contact us with the product name and your question.",
   },
   {
-    question: "What makes Yoglivya props durable and sustainable?",
+    question: "I’m new to yoga. Where should I begin shopping?",
     answer:
-      "Every prop is crafted using unbleached organic cotton, renewable cork oak, solid zinc hardware, and biodegradable natural tree rubber, free from toxic PVC and synthetic glues.",
+      "Browse by product type and consider what your class or teacher recommends. You do not need to buy every accessory at once. Choose around the practice you plan to follow.",
   },
   {
-    question: "What are your delivery timelines across India?",
+    question: "Where do you deliver?",
     answer:
-      "We offer complimentary Pan-India delivery on orders above ₹999 with Cash on Delivery (COD) available. Standard shipping takes 3–5 business days, with express 1–2 day dispatch available.",
+      "Please see Shipping & Delivery for our confirmed delivery areas and any exclusions.",
   },
   {
-    question: "Do you offer bulk studio orders?",
+    question: "Do you supply studios or groups?",
     answer:
-      "Yes, we collaborate with certified yoga studios and wellness retreats worldwide. Contact our team for customized studio prop packs and wholesale rates.",
+      "You can enquire about Yoglivya-branded products through our Business & Bulk Enquiries form. Include the products and approximate quantities you are considering.",
   },
 ];
 
@@ -204,31 +204,31 @@ export default async function HomePage() {
     {
       name: "Yoga Props",
       slug: "yoga-props",
-      tagline: "Support your practice",
+      tagline: "Tools for the way you practise.",
       image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139079/yoglivya/categories/yoga-blocks.png",
     },
     {
       name: "Yoga Mats",
       slug: "yoga-mats",
-      tagline: "Ground your practice",
+      tagline: "Make space for movement.",
       image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139081/yoglivya/categories/yoga-mats.png",
     },
     {
       name: "Meditation",
       slug: "meditation",
-      tagline: "Create stillness",
+      tagline: "Settle into your own ritual.",
       image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139072/yoglivya/products/yoga-bolster.jpg",
     },
     {
       name: "Wellness",
       slug: "wellness",
-      tagline: "Everyday rituals",
+      tagline: "Explore everyday rituals.",
       image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139068/yoglivya/products/trataka-stand.jpg",
     },
     {
       name: "Accessories",
       slug: "accessories",
-      tagline: "Practice essentials",
+      tagline: "The details around your practice.",
       image: "https://res.cloudinary.com/dzobobkqw/image/upload/v1793139078/yoglivya/categories/yoga-accessories.png",
     },
   ];
@@ -240,29 +240,29 @@ export default async function HomePage() {
       <HeroSlider />
       <MarqueeBanner />
 
-      <section id="bestsellers" className="max-w-[1240px] mx-auto px-5 sm:px-6 py-8 sm:py-10">
+      <section id="collection" className="max-w-[1240px] mx-auto px-5 sm:px-6 py-8 sm:py-10">
         <div className="flex items-end justify-between mb-7 border-b border-[#e7e5df] pb-4">
           <div>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-              Most Loved
+              EXPLORE THE COLLECTION
             </span>
             <h2
               className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Bestsellers
+              Essentials for your practice
             </h2>
           </div>
           <Link
             href="/products"
             className="text-[10px] tracking-[0.14em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] hover:border-[#a08758] transition-colors"
           >
-            View All
+            Shop All
           </Link>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {bestsellers.map((item, index) => (
+          {bestsellers.map((item) => (
             <ResourceProductCard
               key={item.id}
               id={item.id}
@@ -272,7 +272,6 @@ export default async function HomePage() {
               shortDescription={item.shortDescription}
               priceINR={item.priceINR}
               image={item.image}
-              badge={index === 0 || index === 2 ? 'BESTSELLER' : undefined}
             />
           ))}
         </div>
@@ -282,13 +281,13 @@ export default async function HomePage() {
         <div className="flex items-end justify-between mb-7">
           <div>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-              Explore
+              FIND YOUR ESSENTIALS
             </span>
             <h2
               className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Shop by Category
+              Shop by practice
             </h2>
           </div>
         </div>
@@ -323,30 +322,30 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════ SECTION 4: NEW ARRIVALS ═══════════════ */}
+      {/* ═══════════════ SECTION 06: NEW ARRIVALS ═══════════════ */}
       <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-8 sm:py-10">
         <div className="flex items-end justify-between mb-7 border-b border-[#e7e5df] pb-4">
           <div>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-              Just In
+              NEW TO YOGLIVYA
             </span>
             <h2 
               className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              New Arrivals
+              Fresh additions to your practice
             </h2>
           </div>
           <Link
             href="/products"
             className="text-[10px] tracking-[0.14em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] hover:border-[#a08758] transition-colors"
           >
-            View All
+            View New Arrivals
           </Link>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {newArrivals.map((item, index) => (
+          {newArrivals.map((item) => (
             <ResourceProductCard
               key={item.id}
               id={item.id}
@@ -356,31 +355,30 @@ export default async function HomePage() {
               shortDescription={item.shortDescription}
               priceINR={item.priceINR}
               image={item.image}
-              badge={index === 0 || index === 1 ? 'NEW' : undefined}
             />
           ))}
         </div>
       </section>
 
-      {/* ═══════════════ SECTION 5: TRENDING ═══════════════ */}
+      {/* ═══════════════ SECTION 07: EXPLORE MORE ═══════════════ */}
       <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-8 sm:py-10">
         <div className="flex items-end justify-between mb-7 border-b border-[#e7e5df] pb-4">
           <div>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-              Popular Right Now
+              EXPLORE MORE
             </span>
             <h2 
               className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Trending
+              Find your next practice essential
             </h2>
           </div>
           <Link
             href="/products"
             className="text-[10px] tracking-[0.14em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] hover:border-[#a08758] transition-colors"
           >
-            Explore
+            View the Collection
           </Link>
         </div>
 
@@ -400,31 +398,29 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════ SECTION 6: PHILOSOPHY SPLIT ═══════════════ */}
+      {/* ═══════════════ SECTION 08: PHILOSOPHY SPLIT BLOCK ═══════════════ */}
       <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-[2px] overflow-hidden">
           {/* Left Text */}
           <div className="bg-[#26352b] text-white p-8 sm:p-12 lg:p-16 min-h-[420px] flex flex-col justify-center">
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#c7b995] font-bold">
-              Our Philosophy
+              THE YOGLIVYA PERSPECTIVE
             </span>
             <h2 
               className="text-[32px] sm:text-[38px] font-normal leading-[1.12] text-white my-4"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Designed for the practice. Considered for everyday life.
+              There is more to practice than movement.
             </h2>
             <p className="text-[13.5px] leading-[1.8] text-[#cdd2cc] max-w-[470px] mb-6">
-              Yoglivya brings traditional yoga knowledge and modern product
-              design together — creating beautiful, functional tools for a more
-              intentional practice.
+              A stretch. A steady breath. A moment of attention. At Yoglivya, we make room for each part of practice, bringing yoga essentials together with a thoughtful invitation to turn inward.
             </p>
             <div>
               <Link
-                href="/about"
+                href="/about#purpose"
                 className="inline-block px-6 py-3.5 border border-white text-white text-[10px] tracking-[0.14em] uppercase font-semibold hover:bg-white hover:text-[#26352b] transition-colors"
               >
-                Discover Yoglivya
+                Discover Our Philosophy
               </Link>
             </div>
           </div>
@@ -441,25 +437,25 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════ SECTION 7: YOGA EDUCATION ═══════════════ */}
+      {/* ═══════════════ SECTION 09: YOGA EDUCATION ═══════════════ */}
       <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-12 sm:py-16">
         <div className="flex items-end justify-between mb-8 border-b border-[#e7e5df] pb-4">
           <div>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-              Learn & Practice
+              LEARN &amp; PRACTISE
             </span>
             <h2 
               className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Yoga Education
+              Get to know your practice essentials
             </h2>
           </div>
           <Link
             href="/about#everyday"
             className="text-[10px] tracking-[0.14em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] hover:border-[#a08758] transition-colors"
           >
-            Explore Journal
+            Explore the Guides
           </Link>
         </div>
 
@@ -468,7 +464,7 @@ export default async function HomePage() {
             <div className="aspect-[1.3] bg-[#f5f3ed] mb-4 overflow-hidden rounded-[2px]">
               <img
                 src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=700&q=80"
-                alt="How to choose the right yoga belt length"
+                alt="How to choose a yoga belt"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -477,16 +473,16 @@ export default async function HomePage() {
               className="text-[19px] sm:text-[20px] font-normal text-[#1c211d] leading-snug group-hover:text-[#26352b] transition-colors"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              How to choose the right yoga belt length
+              How to choose a yoga belt
             </h3>
             <p className="text-[12px] text-[#77766f] leading-[1.65] mt-2 mb-3.5">
-              A practical guide to choosing 6 FT, 8 FT or 10 FT for your practice.
+              Understand length, fastening and material before choosing a belt for your practice.
             </p>
             <Link
               href="/about#everyday"
               className="text-[10px] tracking-[0.12em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] transition-colors"
             >
-              Read Guide
+              Read the Guide
             </Link>
           </article>
 
@@ -494,7 +490,7 @@ export default async function HomePage() {
             <div className="aspect-[1.3] bg-[#f5f3ed] mb-4 overflow-hidden rounded-[2px]">
               <img
                 src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80"
-                alt="Why yoga props matter for alignment"
+                alt="Getting to know yoga props"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -503,16 +499,16 @@ export default async function HomePage() {
               className="text-[19px] sm:text-[20px] font-normal text-[#1c211d] leading-snug group-hover:text-[#26352b] transition-colors"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Why yoga props matter for alignment
+              Getting to know yoga props
             </h3>
             <p className="text-[12px] text-[#77766f] leading-[1.65] mt-2 mb-3.5">
-              Understand how simple props can support stability, reach and awareness.
+              Explore the different roles of blocks, belts and other tools in a yoga practice.
             </p>
             <Link
               href="/about#everyday"
               className="text-[10px] tracking-[0.12em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] transition-colors"
             >
-              Read Guide
+              Read the Guide
             </Link>
           </article>
 
@@ -520,7 +516,7 @@ export default async function HomePage() {
             <div className="aspect-[1.3] bg-[#f5f3ed] mb-4 overflow-hidden rounded-[2px]">
               <img
                 src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80"
-                alt="A beginner's guide to yoga props"
+                alt="Choosing a yoga mat for your routine"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -529,138 +525,65 @@ export default async function HomePage() {
               className="text-[19px] sm:text-[20px] font-normal text-[#1c211d] leading-snug group-hover:text-[#26352b] transition-colors"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              A beginner&apos;s guide to yoga props
+              Choosing a yoga mat for your routine
             </h3>
             <p className="text-[12px] text-[#77766f] leading-[1.65] mt-2 mb-3.5">
-              The essential props to start building a considered home practice.
+              Consider size, thickness, surface and care when comparing your options.
             </p>
             <Link
               href="/about#everyday"
               className="text-[10px] tracking-[0.12em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] transition-colors"
             >
-              Read Guide
+              Read the Guide
             </Link>
           </article>
         </div>
       </section>
 
-      {/* ═══════════════ SECTION 8: REVIEWS BAND ═══════════════ */}
+      {/* ═══════════════ SECTION 10: HERE TO HELP ═══════════════ */}
       <section className="bg-[#f7f6f2] py-16 sm:py-20 px-5 sm:px-8 border-y border-[#e7e5df]">
-        <div className="max-w-[1050px] mx-auto text-center">
+        <div className="max-w-[700px] mx-auto text-center">
           <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-            Real Practice
+            HERE TO HELP
           </span>
           <h2 
-            className="text-[30px] sm:text-[34px] font-normal text-[#1c211d] mt-2 mb-2"
+            className="text-[30px] sm:text-[36px] font-normal text-[#1c211d] mt-2 mb-3"
             style={{ fontFamily: 'Georgia, serif' }}
           >
-            Loved by Yoglivya customers
+            Find what fits your practice.
           </h2>
-          <div className="text-[#a08758] text-[16px] tracking-[4px]">
-            ★★★★★
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mt-10 text-left">
-            <div className="bg-white p-6 border border-[#e7e5df] rounded-[2px] flex flex-col justify-between">
-              <div>
-                <div className="text-[#a08758] text-[12px] tracking-[2px] mb-2.5">
-                  ★★★★★
-                </div>
-                <p className="text-[12.5px] text-[#666666] leading-[1.65]">
-                  “The cotton feels premium and the belt has a secure grip during practice.”
-                </p>
-              </div>
-              <div className="flex items-center gap-3 mt-6 pt-4 border-t border-[#f0eee8]">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80"
-                  alt="Aarohi Sharma"
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#f0eee8]"
-                />
-                <div>
-                  <strong className="block text-[11px] font-semibold text-[#1c211d]">
-                    Aarohi Sharma
-                  </strong>
-                  <span className="block text-[9px] text-[#77766f] tracking-wide">
-                    Verified customer
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 border border-[#e7e5df] rounded-[2px] flex flex-col justify-between">
-              <div>
-                <div className="text-[#a08758] text-[12px] tracking-[2px] mb-2.5">
-                  ★★★★★
-                </div>
-                <p className="text-[12.5px] text-[#666666] leading-[1.65]">
-                  “Beautiful quality and very thoughtfully made. Exactly what I wanted.”
-                </p>
-              </div>
-              <div className="flex items-center gap-3 mt-6 pt-4 border-t border-[#f0eee8]">
-                <img
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80"
-                  alt="Rohan Mehta"
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#f0eee8]"
-                />
-                <div>
-                  <strong className="block text-[11px] font-semibold text-[#1c211d]">
-                    Rohan Mehta
-                  </strong>
-                  <span className="block text-[9px] text-[#77766f] tracking-wide">
-                    Verified customer
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 border border-[#e7e5df] rounded-[2px] flex flex-col justify-between">
-              <div>
-                <div className="text-[#a08758] text-[12px] tracking-[2px] mb-2.5">
-                  ★★★★★
-                </div>
-                <p className="text-[12.5px] text-[#666666] leading-[1.65]">
-                  “Simple, functional and feels much more premium than ordinary yoga props.”
-                </p>
-              </div>
-              <div className="flex items-center gap-3 mt-6 pt-4 border-t border-[#f0eee8]">
-                <img
-                  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&h=100&q=80"
-                  alt="Meera Kapoor"
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#f0eee8]"
-                />
-                <div>
-                  <strong className="block text-[11px] font-semibold text-[#1c211d]">
-                    Meera Kapoor
-                  </strong>
-                  <span className="block text-[9px] text-[#77766f] tracking-wide">
-                    Verified customer
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p className="text-[13.5px] leading-[1.8] text-[#666666] max-w-[540px] mx-auto mb-8">
+            Have a question about a product, size or material? Tell us what you are considering so we can help you understand your options.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 px-7 py-3.5 bg-[#26352b] text-white text-[10px] font-bold tracking-[0.14em] uppercase hover:bg-[#1c2720] transition-colors"
+          >
+            <span>Ask a Product Question</span>
+            <span className="text-[14px]">↗</span>
+          </Link>
         </div>
       </section>
 
-      {/* ═══════════════ SECTION 9: FROM THE JOURNAL ═══════════════ */}
+      {/* ═══════════════ SECTION 11: FROM THE JOURNAL ═══════════════ */}
       <section className="max-w-[1240px] mx-auto px-5 sm:px-6 py-14 sm:py-16">
         <div className="flex items-end justify-between mb-8 border-b border-[#e7e5df] pb-4">
           <div>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-              From the Journal
+              THE YOGLIVYA JOURNAL
             </span>
             <h2 
               className="text-[28px] sm:text-[32px] font-normal text-[#1c211d] mt-1.5"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Ideas for your practice
+              Reflections beyond the mat
             </h2>
           </div>
           <Link
-            href="/about#everyday"
+            href="/about#journal"
             className="text-[10px] tracking-[0.14em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] transition-colors"
           >
-            View Journal
+            Visit the Journal
           </Link>
         </div>
 
@@ -669,7 +592,7 @@ export default async function HomePage() {
             <div className="aspect-[1.35] bg-[#f5f3ed] mb-4 overflow-hidden rounded-[2px]">
               <img
                 src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80"
-                alt="Building a more intentional home yoga practice"
+                alt="Making room for a personal practice"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -678,16 +601,16 @@ export default async function HomePage() {
               className="text-[22px] sm:text-[25px] font-normal text-[#1c211d] leading-snug group-hover:text-[#26352b] transition-colors"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Building a more intentional home yoga practice
+              Making room for a personal practice
             </h3>
             <p className="text-[12px] text-[#77766f] leading-[1.65] mt-2 mb-3.5">
-              Simple ways to make your practice consistent, comfortable and purposeful.
+              A reflection on time, space and finding a rhythm that belongs to you.
             </p>
             <Link
               href="/about#everyday"
               className="text-[10px] tracking-[0.12em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] transition-colors"
             >
-              Read Article
+              Read the Story
             </Link>
           </article>
 
@@ -695,7 +618,7 @@ export default async function HomePage() {
             <div className="aspect-[1.35] bg-[#f5f3ed] mb-4 overflow-hidden rounded-[2px]">
               <img
                 src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80"
-                alt="Yoga props explained"
+                alt="What does mindful living mean to you?"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -704,16 +627,16 @@ export default async function HomePage() {
               className="text-[19px] sm:text-[20px] font-normal text-[#1c211d] leading-snug group-hover:text-[#26352b] transition-colors"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Yoga props explained
+              What does mindful living mean to you?
             </h3>
             <p className="text-[12px] text-[#77766f] leading-[1.65] mt-2 mb-3.5">
-              What each essential prop actually does for your alignment and breath.
+              Exploring attention in the ordinary moments that make up a day.
             </p>
             <Link
               href="/about#everyday"
               className="text-[10px] tracking-[0.12em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] transition-colors"
             >
-              Read Guide
+              Read the Story
             </Link>
           </article>
 
@@ -721,7 +644,7 @@ export default async function HomePage() {
             <div className="aspect-[1.35] bg-[#f5f3ed] mb-4 overflow-hidden rounded-[2px]">
               <img
                 src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"
-                alt="Yoga and everyday wellness"
+                alt="Movement, stillness and the space between"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -730,53 +653,61 @@ export default async function HomePage() {
               className="text-[19px] sm:text-[20px] font-normal text-[#1c211d] leading-snug group-hover:text-[#26352b] transition-colors"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Yoga & everyday wellness
+              Movement, stillness and the space between
             </h3>
             <p className="text-[12px] text-[#77766f] leading-[1.65] mt-2 mb-3.5">
-              Small rituals that support a calmer routine throughout the week.
+              Considering the different ways we make room for practice.
             </p>
             <Link
               href="/about#everyday"
               className="text-[10px] tracking-[0.12em] uppercase text-[#1c211d] border-b border-[#1c211d] pb-0.5 hover:text-[#a08758] transition-colors"
             >
-              Read Guide
+              Read the Story
             </Link>
           </article>
         </div>
       </section>
 
-      {/* ═══════════════ SECTION 10: NEWSLETTER ═══════════════ */}
+      {/* ═══════════════ SECTION 12: NEWSLETTER ═══════════════ */}
       <section className="bg-[#f5f3ed] py-14 sm:py-16 px-5 sm:px-8 text-center border-t border-[#e7e5df]">
         <div className="max-w-[550px] mx-auto">
           <span className="text-[10px] tracking-[0.2em] uppercase text-[#827a68] font-bold">
-            Stay Connected
+            STAY CONNECTED
           </span>
           <h2 
             className="text-[30px] sm:text-[34px] font-normal text-[#1c211d] mt-2 mb-2"
             style={{ fontFamily: 'Georgia, serif' }}
           >
-            Practice. Learn. Live.
+            A little space for your practice.
           </h2>
           <p className="text-[12.5px] text-[#77766f] mb-6">
-            Join the Yoglivya journal for yoga, wellness and new product updates.
+            Join the Yoglivya newsletter for product updates, practice ideas and notes on mindful living.
           </p>
 
           <form 
             action="/contact" 
-            className="flex max-w-[480px] mx-auto border border-[#deded5] bg-white rounded-[2px] overflow-hidden shadow-sm"
+            className="flex flex-col gap-3 max-w-[480px] mx-auto"
           >
-            <input
-              type="email"
-              placeholder="Your email address"
-              required
-              className="flex-1 px-4 py-3 text-[12.5px] outline-none text-[#1c211d] bg-transparent"
-            />
-            <button
-              type="submit"
-              className="bg-[#26352b] text-white px-6 text-[10px] font-bold tracking-[0.12em] uppercase hover:bg-[#1c2720] transition-colors"
-            >
-              JOIN
-            </button>
+            <div className="flex border border-[#deded5] bg-white rounded-[2px] overflow-hidden shadow-sm">
+              <input
+                type="email"
+                placeholder="Your email address"
+                required
+                className="flex-1 px-4 py-3 text-[12.5px] outline-none text-[#1c211d] bg-transparent"
+              />
+              <button
+                type="submit"
+                className="bg-[#26352b] text-white px-6 text-[10px] font-bold tracking-[0.12em] uppercase hover:bg-[#1c2720] transition-colors whitespace-nowrap"
+              >
+                Join the Newsletter
+              </button>
+            </div>
+            <p className="text-[10.5px] text-[#827a68] text-center">
+              I’d like to receive email updates from Yoglivya. I can unsubscribe at any time. Read our{' '}
+              <Link href="/privacy" className="underline hover:text-[#26352b]">
+                Privacy Policy
+              </Link>.
+            </p>
           </form>
         </div>
       </section>

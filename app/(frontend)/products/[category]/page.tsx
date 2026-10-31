@@ -21,14 +21,39 @@ export async function generateStaticParams() {
     }));
 }
 
+const CATEGORY_SEO_MAP: Record<string, { title: string; description: string }> = {
+    'yoga-mats': {
+        title: 'Yoga Mats for Your Practice | Yoglivya',
+        description: 'Explore Yoglivya yoga mats. Compare available materials, sizes and thicknesses, and review product details to find an option for your routine.',
+    },
+    'yoga-props': {
+        title: 'Yoga Props, Belts & Ropes | Yoglivya',
+        description: 'Explore yoga props for your practice. Compare available belts, ropes, blocks and other essentials by material, size and intended use.',
+    },
+    'meditation': {
+        title: 'Meditation Essentials | Yoglivya',
+        description: 'Explore Yoglivya meditation essentials for the space and routine you bring to stillness. Review product details and available options.',
+    },
+    'wellness': {
+        title: 'Wellness Essentials | Yoglivya',
+        description: 'Explore products for personal rituals and everyday routines. Read each listing for its materials or ingredients, intended use and care information.',
+    },
+    'accessories': {
+        title: 'Yoga Accessories | Yoglivya',
+        description: 'Find the additional pieces that fit around your practice. Explore the available accessories and choose what is useful to your routine.',
+    },
+};
+
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
     const { category } = await params;
     const cat = await getCategoryBySlug(category);
     if (!cat) return {};
 
+    const override = CATEGORY_SEO_MAP[category];
+
     return buildMetadata({
-        title: `${cat.name}`,
-        description: cat.description,
+        title: override ? override.title : `${cat.name}`,
+        description: override ? override.description : cat.description,
         path: `/products/${cat.slug}`,
     });
 }

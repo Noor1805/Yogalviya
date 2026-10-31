@@ -27,57 +27,57 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 'slide-1',
-    badge: 'Living the Yogic Way · Conscious Movement',
-    title: 'Practice with purpose.',
-    titleAccent: 'Every breath, every stretch.',
+    badge: 'YOGA & MEDITATION ESSENTIALS',
+    title: 'Your practice.',
+    titleAccent: 'Your own way.',
     subtitle:
-      'Premium yoga props, non-slip mats and wellness essentials handcrafted to bring deep alignment and intention to your daily ritual.',
+      'Discover yoga mats, props and meditation essentials for the way you move, pause and practise. Make room for yoga in your everyday life.',
     primaryCta: {
-      label: 'Shop Collection',
+      label: 'Shop All Essentials',
       href: '/products',
-    },
-    secondaryCta: {
-      label: 'Explore Yoga Props',
-      href: '/products/yoga-props',
-    },
-    image: '/images/home/yoga-practice-1.png',
-    alt: 'Woman stretching during a mindful yoga practice in a bright studio',
-  },
-  {
-    id: 'slide-2',
-    badge: '100% Sustainable & Renewable · Earth First',
-    title: 'Grounded in nature,',
-    titleAccent: 'crafted for stillness.',
-    subtitle:
-      'Eco-friendly cork blocks, organic buckwheat bolsters, and biodegradable natural rubber mats that honor your practice and our planet.',
-    primaryCta: {
-      label: 'Explore Meditation',
-      href: '/products/meditation',
     },
     secondaryCta: {
       label: 'Our Story',
       href: '/about',
     },
-    image: '/images/home/yoga-practice-2.png',
-    alt: 'Woman meditating in a serene outdoor-inspired space',
+    image: '/images/home/yoga-practice-1.png',
+    alt: 'Individual stretching in a bright studio',
   },
   {
-    id: 'slide-3',
-    badge: 'Studio-Grade Durability · Certified Quality',
-    title: 'Master your alignment.',
-    titleAccent: 'Support that elevates you.',
+    id: 'slide-2',
+    badge: 'SUPPORT FOR YOUR PRACTICE',
+    title: 'Find your reach.',
+    titleAccent: 'Explore your practice.',
     subtitle:
-      'Tested with master yoga teachers: heavy-duty woven cotton straps, solid zinc D-rings, and Iyengar ropes made to withstand years of intense daily practice.',
+      'Explore yoga belts, ropes and props that give you more ways to practise. Find the tools that suit your next session, at home or in the studio.',
     primaryCta: {
-      label: 'Discover Bestsellers',
-      href: '#bestsellers',
+      label: 'Shop Yoga Props',
+      href: '/products/yoga-props',
     },
     secondaryCta: {
-      label: 'View All Props',
+      label: 'Explore the Collection',
       href: '/products',
     },
     image: '/images/home/yoga-practice-3.png',
-    alt: 'Group yoga class practicing together in a sunlit studio',
+    alt: 'Group practising in a yoga studio',
+  },
+  {
+    id: 'slide-3',
+    badge: 'MAKE ROOM FOR STILLNESS',
+    title: 'A place to pause.',
+    titleAccent: 'A practice of your own.',
+    subtitle:
+      'Create a space to sit, breathe and turn your attention inward. Explore essentials for meditation and the quieter moments of your day.',
+    primaryCta: {
+      label: 'Shop Meditation',
+      href: '/products/meditation',
+    },
+    secondaryCta: {
+      label: 'Discover Our Philosophy',
+      href: '/about#purpose',
+    },
+    image: '/images/home/yoga-practice-2.png',
+    alt: 'Seated practitioner overlooking a natural landscape',
   },
 ];
 

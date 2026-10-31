@@ -1,10 +1,19 @@
-export const dynamic = 'force-dynamic';
-
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from '@/components/layout/Container';
 import { getAllProducts, getAllCategories } from '@/data/products';
+import { buildMetadata } from '@/lib/utils/seo';
 import ProductsClient from './ProductsClient';
+
+export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Shop Yoga & Meditation Essentials | Yoglivya',
+  description:
+    'Browse Yoglivya’s collection of yoga and meditation essentials. Compare products, explore available options and choose for your practice.',
+  path: '/products',
+});
 
 interface ProductsPageProps {
   searchParams: Promise<{ search?: string; category?: string }>;
@@ -70,24 +79,22 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           <div className="relative flex min-h-[400px] items-center px-7 py-12 text-white sm:min-h-[480px] sm:px-12 lg:min-h-[540px] lg:px-16">
             <div className="max-w-xl">
               <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/80 sm:text-[10px]">
-                New collection
+                All Essentials
               </p>
               <h1
                 className="mt-4 max-w-lg text-4xl font-normal leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
                 style={{ fontFamily: 'Georgia, serif' }}
               >
-                Practice Better.
-                <br />
-                Live Better.
+                Yoga &amp; Meditation Essentials
               </h1>
-              <p className="mt-4 max-w-sm text-xs leading-6 text-white/85 sm:text-sm">
-                Thoughtfully made essentials to support your movement, restore your balance, and bring intention to every day.
+              <p className="mt-4 max-w-md text-xs leading-6 text-white/85 sm:text-sm">
+                Explore mats, props and essentials for movement and stillness. Find what belongs in your practice, from your first session to the routine you return to.
               </p>
               <Link
                 href="#all-products"
                 className="mt-7 inline-flex min-h-10 items-center bg-[#1c211d] px-5 text-[9px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#35483a]"
               >
-                Shop new arrivals
+                Explore the collection
               </Link>
             </div>
             <span className="absolute bottom-8 right-8 hidden text-[10px] tracking-[0.2em] text-white/80 sm:block">
@@ -131,13 +138,13 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         <Container>
           <div className="mb-8">
             <p className="text-[9px] font-medium uppercase tracking-[0.24em] text-[#827a68]">
-              Find your practice
+              FIND YOUR ESSENTIALS
             </p>
             <h2
               className="mt-2 text-3xl font-normal text-[#1c211d]"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Shop All Essentials
+              Yoga &amp; Meditation Essentials
             </h2>
           </div>
           <ProductsClient

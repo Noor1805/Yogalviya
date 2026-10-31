@@ -8,11 +8,11 @@ const footerSections = [
     {
         title: 'SHOP',
         links: [
-            { label: 'All Products', href: '/products' },
-            { label: 'Yoga Props', href: '/products/yoga-props' },
+            { label: 'All Essentials', href: '/products' },
             { label: 'Yoga Mats', href: '/products/yoga-mats' },
-            { label: 'Bestsellers', href: '/products?sort=bestseller' },
-            { label: 'New Arrivals', href: '/products?sort=new' },
+            { label: 'Yoga Props', href: '/products/yoga-props' },
+            { label: 'Meditation', href: '/products/meditation' },
+            { label: 'New Arrivals', href: '/products?sort=newest' },
         ],
     },
     {
@@ -20,34 +20,32 @@ const footerSections = [
         links: [
             { label: 'Our Story', href: '/about#story' },
             { label: 'Our Philosophy', href: '/about#purpose' },
-            { label: 'Everyday Rituals', href: '/about#everyday' },
-            { label: 'Values & Principles', href: '/about#values' },
+            { label: 'Our Values', href: '/about#values' },
+            { label: 'Journal', href: '/about#journal' },
         ],
     },
     {
         title: 'HELP',
         links: [
             { label: 'Contact Us', href: '/contact' },
-            { label: 'Shipping & Delivery', href: '/contact#faq' },
-            { label: 'Returns & Refunds', href: '/contact#faq' },
-            { label: 'FAQs', href: '/contact#faq' },
-            { label: 'Track Order', href: '/account/orders' },
+            { label: 'Shipping & Delivery', href: '/shipping' },
+            { label: 'Returns & Refunds', href: '/returns' },
+            { label: 'FAQs', href: '/faq' },
+            { label: 'Track Your Order', href: '/track-order' },
         ],
     },
     {
         title: 'BUSINESS',
         links: [
-            { label: 'Bulk / Wholesale', href: '/contact' },
-            { label: 'Studio Orders', href: '/contact' },
-            { label: 'Corporate Wellness', href: '/contact' },
+            { label: 'Business & Bulk Enquiries', href: '/contact#bulk' },
         ],
     },
     {
         title: 'LEGAL',
         links: [
-            { label: 'Privacy Policy', href: '/contact' },
-            { label: 'Terms & Conditions', href: '/contact' },
-            { label: 'Refund Policy', href: '/contact' },
+            { label: 'Privacy Policy', href: '/privacy' },
+            { label: 'Terms & Conditions', href: '/terms' },
+            { label: 'Returns & Refunds', href: '/returns' },
         ],
     },
 ];
@@ -77,10 +75,10 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="mt-2.5 text-[11.5px] leading-[1.8] text-[#c4c9c1] max-w-[280px]">
-                            Premium yoga props and wellness essentials designed for a considered daily practice.
+                            Yoga and meditation essentials for movement, stillness and the practice you make your own.
                         </p>
                         <div className="mt-5 flex items-center gap-3 text-[11px] text-[#a08758] tracking-widest uppercase font-semibold">
-                            <span>Living the yogic way</span>
+                            <span>The Path To Enlightenment</span>
                         </div>
                     </div>
 
@@ -146,8 +144,8 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-[#9aa58e]">
                     <p>© {currentYear} Yoglivya. All rights reserved.</p>
-                    <p className="tracking-[0.1em] uppercase">Practice with purpose · Mindful everyday</p>
-                    <p className="text-[#a08758]">Crafted for conscious living</p>
+                    <p className="tracking-[0.1em] uppercase">The Path To Enlightenment</p>
+                    <p className="text-[#a08758]">Essentials for your practice</p>
                 </div>
             </div>
         </footer>

@@ -233,7 +233,7 @@ export default function SearchOverlay({
                                 type="text"
                                 value={searchQuery}
                                 onChange={(event) => setSearchQuery(event.target.value)}
-                                placeholder="Yoga mats, cork blocks, bolsters, belts..."
+                                placeholder="Search mats, props and practice essentials"
                                 className="w-full bg-transparent py-3 text-lg lg:text-xl font-light text-black placeholder:text-neutral-300 outline-none focus:outline-none focus:ring-0"
                                 style={{
                                     border: 'none',
