@@ -89,12 +89,12 @@ export default function Header() {
           {/* CENTER — Brand Name */}
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 hover:opacity-85 transition-opacity duration-200"
+            className="absolute left-1/2 -translate-x-1/2 hover:opacity-90 transition-opacity duration-200"
           >
             <img
-              src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Yoglivya_White_1.png"
+              src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793451826/yoglivya/products/qagpwkmip436tg7rkivv.png"
               alt="Yoglivya"
-              className="h-9 sm:h-10 w-auto object-contain filter invert mix-blend-screen"
+              className="h-11 sm:h-14 w-auto object-contain"
             />
           </Link>
 

@@ -69,9 +69,9 @@ export default function Footer() {
                     <div className="pr-4">
                         <Link href="/" className="inline-block group mb-2">
                             <img
-                                src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Screenshot_2026-10-27_at_10.37.15_PM.png"
+                                src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793451826/yoglivya/products/qagpwkmip436tg7rkivv.png"
                                 alt="Yoglivya — The Path to Enlightenment"
-                                className="h-14 sm:h-[62px] w-auto object-contain filter invert mix-blend-screen -ml-1"
+                                className="h-16 sm:h-[80px] w-auto object-contain -ml-1"
                             />
                         </Link>
                         <p className="mt-2.5 text-[11.5px] leading-[1.8] text-[#c4c9c1] max-w-[280px]">

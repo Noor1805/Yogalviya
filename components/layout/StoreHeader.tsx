@@ -89,9 +89,9 @@ export default function StoreHeader() {
                         className="flex items-center gap-2 group transition-opacity hover:opacity-85 py-0.5"
                     >
                         <img
-                            src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Yoglivya_White_1.png"
+                            src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793451824/yoglivya/products/adirn6l2k2qycjksswim.png"
                             alt="Yoglivya"
-                            className="h-11 sm:h-[50px] w-auto object-contain mix-blend-multiply"
+                            className="h-12 sm:h-[58px] w-auto object-contain"
                         />
                     </Link>
 
@@ -282,9 +282,9 @@ export default function StoreHeader() {
                             <div>
                                 <div className="flex items-center justify-between pb-6 border-b border-[#e7e5df]">
                                     <img
-                                        src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793443241/Yoglivya_White_1.png"
+                                        src="https://res.cloudinary.com/xyb4tzup/image/upload/v1793451824/yoglivya/products/adirn6l2k2qycjksswim.png"
                                         alt="Yoglivya"
-                                        className="h-8 w-auto object-contain mix-blend-multiply"
+                                        className="h-10 w-auto object-contain"
                                     />
                                     <button
                                         onClick={() => setMobileOpen(false)}
